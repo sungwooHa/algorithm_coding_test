@@ -83,3 +83,10 @@ public:
 		return first;
 	}
 };
+
+class LeetCode_26 : public ISolution
+{
+public:
+	int removeDuplicates(vector<int>& nums);
+	virtual void Drive() override;
+};
