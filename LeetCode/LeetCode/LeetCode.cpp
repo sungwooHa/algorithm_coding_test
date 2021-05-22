@@ -1,5 +1,6 @@
 #include "LeetCode.h"
 #include <stack>
+#include <iostream>
 
 /// <summary>
 /// https://leetcode.com/problems/two-sum/
@@ -243,6 +244,7 @@ void LeetCode_14::Drive()
 
 /// <summary>
 /// 괄호 짝맞추기.
+/// stack 이용해 계속 input
 /// </summary>
 /// <param name="s"></param>
 /// <returns></returns>
@@ -292,4 +294,75 @@ void LeetCode_20::Drive()
     assert(isValid("(]") == false);
     assert(isValid("([)]") == false);
     assert(isValid("{[]}") == true);
+}
+
+
+LeetCode_21::ListNode* LeetCode_21::mergeTwoLists(ListNode* l1, ListNode* l2)
+{
+    if (!l1 && !l2)
+        return NULL;
+    ListNode* first(nullptr);
+    ListNode* curNode(nullptr);
+
+    while (true)
+    {
+        if (!curNode)
+        {
+            if (!l1)
+                return l2;
+            if (!l2)
+                return l1;
+            if (l1->val < l2->val)
+            {
+                curNode = l1;
+                l1 = l1->next;
+            }
+            else
+            {
+                curNode = l2;
+                l2 = l2->next;
+            }
+            first = curNode;
+        }
+
+        if (l1 == nullptr)
+        {
+            curNode->next = l2;
+            break;
+        }
+
+        if (l2 == nullptr)
+        {
+            curNode->next = l1;
+            break;
+        }
+
+        if (l1->val < l2->val)
+        {
+            curNode->next = l1;
+            l1 = l1->next;
+        }
+        else
+        {
+            curNode->next = l2;
+            l2 = l2->next;
+        }
+        curNode = curNode->next;
+    }
+
+    return first;
+}
+
+void LeetCode_21::Drive()
+{
+    auto list1 = CreateList({1,2,4});
+    auto list2 = CreateList({1,3,4});
+    auto answer = mergeTwoLists(list1, list2);
+
+    while (answer != nullptr)
+    {
+        std::cout << answer->val << std::endl;
+        answer = answer->next;
+    }
+
 }
