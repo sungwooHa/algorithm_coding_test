@@ -90,3 +90,11 @@ public:
 	int removeDuplicates(vector<int>& nums);
 	virtual void Drive() override;
 };
+
+class LeetCode_27 : public ISolution
+{
+public:
+	int removeElement(vector<int>& nums, int val);
+	virtual void Drive() override;
+};
+

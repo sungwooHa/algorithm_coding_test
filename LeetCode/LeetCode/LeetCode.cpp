@@ -412,3 +412,38 @@ void LeetCode_26::Drive()
 	nums = {};
 	assert(removeDuplicates(nums) == 0);
 }
+
+int LeetCode_27::removeElement(vector<int>& nums, int val)
+{
+	if (nums.empty())
+		return 0;
+
+	int realIdx(0);
+	for (int i = 0; i < nums.size(); ++i)
+	{
+		if (nums[i] != val)
+		{
+			nums[realIdx++] = nums[i];
+		}
+	}
+
+	return realIdx;
+}
+
+void LeetCode_27::Drive()
+{
+	vector<int> nums = { 3, 2, 2, 3 };
+	assert(removeElement(nums, 2) == 2);
+
+	nums = { 3, 2, 2, 3 };
+	assert(removeElement(nums, 3) == 2);
+
+	nums = { 3, 2, 2, 3 };
+	assert(removeElement(nums, 1) == 4);
+
+	nums = {  };
+	assert(removeElement(nums, 1) == 0);
+
+	nums = { 0, 1, 2, 2, 3, 0, 4, 2 };
+	assert(removeElement(nums, 2) == 5);
+}
