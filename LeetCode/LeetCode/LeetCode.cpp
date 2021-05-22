@@ -450,49 +450,39 @@ void LeetCode_27::Drive()
 
 int LeetCode_28::strStr_hash(string haystack, string needle)
 {
-	if (needle.empty())
+	auto charToInt = [&](int idx, string s) -> int
+	{
+		return (int)s[idx] - (int)'a';
+	};
+
+	int L = needle.length(), n = haystack.length(); 
+	
+	if (L > n) return -1; // base value for the rolling hash function
+	int a = 26; // modulus value for the rolling hash function to avoid overflow 
+	long modulus = (long)pow(2, 31)-1; // compute the hash of strings haystack[:L], needle[:L]
+
+	long h = 0, ref_h = 0; 
+	for (int i = 0; i < L; ++i) 
+	{
+		h = (h * a + charToInt(i, haystack)) % modulus;
+		ref_h = (ref_h * a + charToInt(i, needle)) % modulus; 
+	} 
+	
+	if (h == ref_h) 
 		return 0;
-	if (haystack.size() < needle.size())
-		return -1;
 
-	unsigned long long needleHashVal(0);
-	for (int i = 0; i < needle.size(); i++)
-	{
-		needleHashVal += needle[i] * (unsigned long long)(std::pow(2, needle.length() - i - 1));
-	}
-
-	unsigned long long hashVal(0);
-	for (unsigned int i = 0; i < haystack.size() - needle.size() + 1; ++i)
-	{
-		if (i == 0)
-		{
-			//first
-			for (auto j = 0; j < needle.size(); ++j)
-			{
-				hashVal += haystack[j] * (unsigned long long)(std::pow(2, needle.length() - j - 1));
-			}
-		}
-		else
-		{
-			hashVal = (hashVal - haystack[i - 1] * (unsigned long long)std::pow(2, needle.length() - 1));
-			hashVal = hashVal << 1;
-
-			hashVal += haystack[i + needle.length() - 1];
-		}
-
-		if (needleHashVal == hashVal)
-		{
-			for (auto j = 0; j < needle.length(); ++j)
-			{
-				if (needle[j] != haystack[i + j])
-					break;
-				else
-					return i;
-			}
-		}
-	}
-
-	return -1;
+	// const value to be used often : a**L % modulus 
+	long aL = 1; 
+	for (int i = 1; i <= L; ++i)
+		aL = (aL * a) % modulus; 
+	for (int start = 1; start < n - L + 1; ++start) 
+	{ 
+		// compute rolling hash in O(1) time 
+		h = (h * a - charToInt(start - 1, haystack) * aL + charToInt(start + L - 1, haystack)) % modulus;
+		if (h == ref_h) 
+			return start;
+	} 
+	return -1; 
 }
 
 int LeetCode_28::strStr(string haystack, string needle)
@@ -526,6 +516,6 @@ void LeetCode_28::Drive()
 	assert(strStr("hello", "ll") == 2);
 	assert(strStr("aaaaa", "bba") == -1);
 	assert(strStr("a", "a") == 0);
-	assert(strStr("abbbaaaaaaabbababbbbabababbbbbbbaaaaaaabbaaabbaababbbbababababaabbbbbbaaaaababbbbaaabababbbaaaabbbaabbbbbbabababbabaaaaabaabaaababbbaaabaababbaaabaaababbabbbbababaaaaaaababaabaabbaabbbaaabaaaaaa"
-		"aabaaaabababbbabababbbaabaabaaaaabaabbbaabbbbba", "aabaaaabababbbabababbbaabaabaaaaabaabbbaabbbbba") == 194);
+	assert(strStr_hash("ababaabbbbababbaabaaabaabbaaaabbabaabbbbbbabbaabbabbbabbbbbaaabaababbbaabbbabbbaabbbbaaabbababbabbbabaaabbaabbabababbbaaaaaaababbabaababaabbbbaaabbbabb",
+		"abbabbbabaa") == 92);
 }
