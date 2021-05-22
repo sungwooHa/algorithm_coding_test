@@ -39,3 +39,11 @@ public:
 	virtual void Drive() override;
 
 };
+
+class LeetCode_20 : public ISolution
+{
+public:
+	bool isValid(string s);
+	virtual void Drive() override;
+
+};

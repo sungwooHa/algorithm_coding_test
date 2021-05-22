@@ -1,4 +1,5 @@
 #include "LeetCode.h"
+#include <stack>
 
 /// <summary>
 /// https://leetcode.com/problems/two-sum/
@@ -190,6 +191,11 @@ void LeetCode_13::Drive()
 
 }
 
+/// <summary>
+/// prefix 찾기
+/// </summary>
+/// <param name="strs">단어 배열</param>
+/// <returns></returns>
 string LeetCode_14::longestCommonPrefix(vector<string>& strs)
 {
     size_t length(INT_MAX);
@@ -235,3 +241,55 @@ void LeetCode_14::Drive()
     assert(strcmp(val.c_str(), "fl") == 0);
 }
 
+/// <summary>
+/// 괄호 짝맞추기.
+/// </summary>
+/// <param name="s"></param>
+/// <returns></returns>
+bool LeetCode_20::isValid(string s)
+{
+    stack<char> bracketStack;
+    
+    int index(0);
+    bracketStack.push(s[index++]);
+    while (!bracketStack.empty())
+    {
+        if (index > (s.size() - 1))
+            return false;
+
+        auto curBracket = bracketStack.top();
+        
+        if (s[index] == ')' && curBracket == '(')
+        {
+            bracketStack.pop();
+        }
+        else if (s[index] == ']' && curBracket == '[')
+        {
+            bracketStack.pop();
+        }
+        else if (s[index] == '}' && curBracket == '{')
+        {
+            bracketStack.pop();
+        }
+        else
+            bracketStack.push(s[index]);
+
+        ++index;
+
+        if (bracketStack.empty() && index < s.size())
+        {
+            bracketStack.push(s[index]);
+            ++index;
+        }
+    }
+    return true;
+}
+
+void LeetCode_20::Drive()
+{
+    assert(isValid("()") == true);
+    assert(isValid("()[]{}") == true);
+    assert(isValid("(]") == false);
+    assert(isValid("([)]") == false);
+    assert(isValid("{[]}") == true);
+}
