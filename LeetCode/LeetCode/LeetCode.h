@@ -98,3 +98,10 @@ public:
 	virtual void Drive() override;
 };
 
+class LeetCode_28 : public ISolution
+{
+public:
+	int strStr_hash(string haystack, string needle);
+	int strStr(string haystack, string needle);
+	virtual void Drive() override;
+};

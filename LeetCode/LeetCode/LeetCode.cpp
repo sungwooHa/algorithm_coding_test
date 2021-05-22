@@ -447,3 +447,85 @@ void LeetCode_27::Drive()
 	nums = { 0, 1, 2, 2, 3, 0, 4, 2 };
 	assert(removeElement(nums, 2) == 5);
 }
+
+int LeetCode_28::strStr_hash(string haystack, string needle)
+{
+	if (needle.empty())
+		return 0;
+	if (haystack.size() < needle.size())
+		return -1;
+
+	unsigned long long needleHashVal(0);
+	for (int i = 0; i < needle.size(); i++)
+	{
+		needleHashVal += needle[i] * (unsigned long long)(std::pow(2, needle.length() - i - 1));
+	}
+
+	unsigned long long hashVal(0);
+	for (unsigned int i = 0; i < haystack.size() - needle.size() + 1; ++i)
+	{
+		if (i == 0)
+		{
+			//first
+			for (auto j = 0; j < needle.size(); ++j)
+			{
+				hashVal += haystack[j] * (unsigned long long)(std::pow(2, needle.length() - j - 1));
+			}
+		}
+		else
+		{
+			hashVal = (hashVal - haystack[i - 1] * (unsigned long long)std::pow(2, needle.length() - 1));
+			hashVal = hashVal << 1;
+
+			hashVal += haystack[i + needle.length() - 1];
+		}
+
+		if (needleHashVal == hashVal)
+		{
+			for (auto j = 0; j < needle.length(); ++j)
+			{
+				if (needle[j] != haystack[i + j])
+					break;
+				else
+					return i;
+			}
+		}
+	}
+
+	return -1;
+}
+
+int LeetCode_28::strStr(string haystack, string needle)
+{
+	if (needle.empty())
+		return 0;
+	if (haystack.size() < needle.size())
+		return -1;
+
+	for (int i = 0; i < haystack.size() - needle.size() + 1; ++i)
+	{
+		bool isFind(true);
+		for (int j = 0; j < needle.size(); ++j)
+		{
+			if (haystack[i + j] != needle[j])
+			{
+				isFind = false;
+				break;
+			}
+		}
+
+		if (isFind)
+			return i;
+	}
+
+	return -1;
+}
+
+void LeetCode_28::Drive()
+{
+	assert(strStr("hello", "ll") == 2);
+	assert(strStr("aaaaa", "bba") == -1);
+	assert(strStr("a", "a") == 0);
+	assert(strStr("abbbaaaaaaabbababbbbabababbbbbbbaaaaaaabbaaabbaababbbbababababaabbbbbbaaaaababbbbaaabababbbaaaabbbaabbbbbbabababbabaaaaabaabaaababbbaaabaababbaaabaaababbabbbbababaaaaaaababaabaabbaabbbaaabaaaaaa"
+		"aabaaaabababbbabababbbaabaabaaaaabaabbbaabbbbba", "aabaaaabababbbabababbbaabaabaaaaabaabbbaabbbbba") == 194);
+}
