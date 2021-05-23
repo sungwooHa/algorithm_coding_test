@@ -529,21 +529,19 @@ void LeetCode_28::Drive()
 /// <returns></returns>
 int LeetCode_35::searchInsert(vector<int>& nums, int target)
 {
-	if (*nums.rbegin() < target)
-		return nums.size();
-
 	long long min = 0;
-	long long max = nums.size();
+	long long max = nums.size()-1;
 	
-	int answer = 0;
-
 	while (min <= max)
 	{
-		auto mid = (min + max) >> 1;
-		if (nums[mid] >= target)
+		auto mid = min + (max - min) / 2;
+
+		if (nums[mid] == target)
+			return mid;
+
+		if (target < nums[mid])
 		{
 			//change max
-			answer = mid;
 			max = mid - 1;
 		}
 		else
@@ -552,7 +550,7 @@ int LeetCode_35::searchInsert(vector<int>& nums, int target)
 			min = mid + 1;
 		}
 	}
-	return answer;
+	return min;
 }
 
 void LeetCode_35::Drive()
