@@ -112,3 +112,11 @@ public:
 	int searchInsert(vector<int>& nums, int target);
 	virtual void Drive() override;
 };
+
+class LeetCode_53 : public ISolution
+{
+public:
+	int maxSubArray(vector<int>& nums);
+	int maxSubArray_advanced(vector<int>& nums);
+	virtual void Drive() override;
+};

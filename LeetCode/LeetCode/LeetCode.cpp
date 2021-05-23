@@ -570,3 +570,43 @@ void LeetCode_35::Drive()
 	nums = { 1};
 	assert(searchInsert(nums, 0) == 0);
 }
+
+int LeetCode_53::maxSubArray(vector<int>& nums)
+{
+	int answer = INT_MIN;
+	for (unsigned int i = 0; i < nums.size(); ++i)
+	{
+		int tmpAnswer(0);
+		for (unsigned int j = i; j < nums.size(); ++j)
+		{
+			tmpAnswer += nums[j];
+			if (answer < tmpAnswer)
+			{
+				answer = tmpAnswer;
+			}
+		}
+	}
+	return answer;
+}
+
+int LeetCode_53::maxSubArray_advanced(vector<int>& nums)
+{
+	int currsum = 0;
+	int maxsum = INT_MIN;
+
+	for (int i = 0; i < nums.size(); i++)
+	{
+		currsum += nums[i];
+		maxsum = max(maxsum, currsum);
+		if (currsum < 0)
+		{
+			currsum = 0;
+		}
+	}
+
+	return maxsum;
+}
+
+void LeetCode_53::Drive()
+{
+}
