@@ -519,3 +519,56 @@ void LeetCode_28::Drive()
 	assert(strStr_hash("ababaabbbbababbaabaaabaabbaaaabbabaabbbbbbabbaabbabbbabbbbbaaabaababbbaabbbabbbaabbbbaaabbababbabbbabaaabbaabbabababbbaaaaaaababbabaababaabbbbaaabbbabb",
 		"abbabbbabaa") == 92);
 }
+
+/// <summary>
+/// Use BST 
+/// O(log N)
+/// </summary>
+/// <param name="nums"></param>
+/// <param name="target"></param>
+/// <returns></returns>
+int LeetCode_35::searchInsert(vector<int>& nums, int target)
+{
+	if (*nums.rbegin() < target)
+		return nums.size();
+
+	long long min = 0;
+	long long max = nums.size();
+	
+	int answer = 0;
+
+	while (min <= max)
+	{
+		auto mid = (min + max) >> 1;
+		if (nums[mid] >= target)
+		{
+			//change max
+			answer = mid;
+			max = mid - 1;
+		}
+		else
+		{
+			//change min
+			min = mid + 1;
+		}
+	}
+	return answer;
+}
+
+void LeetCode_35::Drive()
+{
+	vector<int> nums = {1,3,5,6};
+	assert(searchInsert(nums, 5) == 2);
+
+	nums = { 1, 3, 5, 6 };
+	assert(searchInsert(nums, 2) == 1);
+
+	nums = { 1, 3, 5, 6 };
+	assert(searchInsert(nums, 7) == 4);
+
+	nums = { 1, 3, 5, 6 };
+	assert(searchInsert(nums, 2) == 1);
+
+	nums = { 1};
+	assert(searchInsert(nums, 0) == 0);
+}

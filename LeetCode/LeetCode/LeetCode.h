@@ -105,3 +105,10 @@ public:
 	int strStr(string haystack, string needle);
 	virtual void Drive() override;
 };
+
+class LeetCode_35 : public ISolution
+{
+public:
+	int searchInsert(vector<int>& nums, int target);
+	virtual void Drive() override;
+};
