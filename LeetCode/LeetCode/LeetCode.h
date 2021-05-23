@@ -120,3 +120,11 @@ public:
 	int maxSubArray_advanced(vector<int>& nums);
 	virtual void Drive() override;
 };
+
+class LeetCode_58 : public ISolution
+{
+public:
+	int lengthOfLastWord(string s);
+	int lengthOfLastWord_array(string s);
+	virtual void Drive() override;
+};

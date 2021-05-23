@@ -610,3 +610,60 @@ int LeetCode_53::maxSubArray_advanced(vector<int>& nums)
 void LeetCode_53::Drive()
 {
 }
+
+
+/// <summary>
+/// use List.
+/// find length of last word
+/// </summary>
+/// <param name="s"> 1) "hello world"</param>
+/// <param name="s"> 2) "a " </param>
+/// <returns> 1) 5</returns>
+/// <returns> 2) 1</returns>
+int LeetCode_58::lengthOfLastWord(string s)
+{
+	int count(0);
+	bool isMeetWord(false);
+	for (auto itr = s.rbegin(); itr != s.rend(); ++itr)
+	{
+		if (*itr == ' ')
+		{
+			if (!isMeetWord)
+				continue;
+			else
+				break;;
+		}
+		else
+			isMeetWord = true;
+
+		count++;
+	}
+
+	return count;
+}
+
+int LeetCode_58::lengthOfLastWord_array(string s)
+{
+	int count(0);
+	bool isMeetWord(false);
+
+	for (int i = s.length()-1; i >= 0; --i)
+	{
+		if (s[i] == ' ')
+		{
+			if (!isMeetWord)
+				continue;
+			else
+				break;
+		}
+		else
+			isMeetWord = true;
+
+		count++;
+	}
+	return count;
+}
+
+void LeetCode_58::Drive()
+{
+}
