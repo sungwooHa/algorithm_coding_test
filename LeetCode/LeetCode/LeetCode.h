@@ -51,37 +51,13 @@ public:
 class LeetCode_21 : public ISolution
 {
 private:
-	//Definition for singly - linked list.
-	struct ListNode
-	{
-		int val;
-		ListNode* next;
-		ListNode() : val(0), next(nullptr) {}
-		ListNode(int x) : val(x), next(nullptr) {}
-		ListNode(int x, ListNode* next) : val(x), next(next) {}
-	};
+
 
 public:
 	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
 	virtual void Drive() override;
 
-	ListNode* CreateList(const std::vector<int>& sv)
-	{
-		ListNode* first(nullptr);
-		ListNode* curNode(nullptr);
-		for (const auto& val : sv)
-		{
-			if (first == nullptr)
-			{
-				first = new ListNode(val);
-				curNode = first;
-				continue;
-			}
-			curNode->next = new ListNode(val);
-			curNode = curNode->next;
-		}
-		return first;
-	}
+	
 };
 
 class LeetCode_26 : public ISolution
@@ -127,4 +103,22 @@ public:
 	int lengthOfLastWord(string s);
 	int lengthOfLastWord_array(string s);
 	virtual void Drive() override;
+};
+
+class LeetCode_105 : public ISolution
+{
+public:
+	TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
+	virtual void Drive() override;
+
+private:
+};
+
+class LeetCode_1375 : public ISolution
+{
+public:
+	int numTimesAllBlue(vector<int>& light);
+	virtual void Drive() override;
+
+private:
 };

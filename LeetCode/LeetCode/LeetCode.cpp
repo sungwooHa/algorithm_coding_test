@@ -2,7 +2,7 @@
 #include <stack>
 #include <iostream>
 #include <deque>
-
+#include <set>
 /// <summary>
 /// https://leetcode.com/problems/two-sum/
 /// </summary>
@@ -298,7 +298,7 @@ void LeetCode_20::Drive()
 }
 
 
-LeetCode_21::ListNode* LeetCode_21::mergeTwoLists(ListNode* l1, ListNode* l2)
+ListNode* LeetCode_21::mergeTwoLists(ListNode* l1, ListNode* l2)
 {
 	if (!l1 && !l2)
 		return NULL;
@@ -357,8 +357,8 @@ LeetCode_21::ListNode* LeetCode_21::mergeTwoLists(ListNode* l1, ListNode* l2)
 
 void LeetCode_21::Drive()
 {
-	auto list1 = CreateList({ 1, 2, 4 });
-	auto list2 = CreateList({ 1, 3, 4 });
+	auto list1 = utilClass::CreateList({ 1, 2, 4 });
+	auto list2 = utilClass::CreateList({ 1, 3, 4 });
 	auto answer = mergeTwoLists(list1, list2);
 
 	while (answer != nullptr)
@@ -665,5 +665,66 @@ int LeetCode_58::lengthOfLastWord_array(string s)
 }
 
 void LeetCode_58::Drive()
+{
+}
+
+TreeNode* LeetCode_105::buildTree(vector<int>& preorder, vector<int>& inorder)
+{
+	if (preorder.empty() || inorder.empty())
+		return nullptr;
+
+	//preorder의 맨앞 : root
+	//inordered: 중간 : root
+
+	int rootVal = *preorder.begin();
+	int rootIdx = 0;
+	for (int idx = 0; idx < inorder.size(); idx++)
+	{
+		if (rootVal == inorder[idx])
+		{
+			rootIdx = idx;
+			break;
+		}
+	}
+	//<1>,<2>,<3>,<4>,5,6
+	//<2>,<3>,<1>,5,<4>,6
+	// 
+	//inorderd의 rootidx
+	//    left subtree - <rootIdx> - right  subtree
+
+	//leftSubTree가 있고, preOrder의 root+1 의 값이 존재하는가? --> 없으면 rigth subtree의 root값
+	//preOrdred의 root+1 == leftSubtree rootValue;
+
+	auto lambda_Tree = [&](int rootIdx, int leftIdx, int rightIdx) -> TreeNode*
+	{
+		return nullptr;
+	};
+
+	return nullptr;
+}
+
+void LeetCode_105::Drive()
+{
+}
+
+int LeetCode_1375::numTimesAllBlue(vector<int>& light)
+{
+	int bulbCount(0);
+	int answer(0);
+	int maxNumb(0);
+	for (const auto& moment : light)
+	{
+		if (moment > maxNumb)
+			maxNumb = moment;
+		
+		bulbCount++;
+		if (bulbCount == maxNumb)
+			answer++;
+	}
+
+	return answer;
+}
+
+void LeetCode_1375::Drive()
 {
 }
