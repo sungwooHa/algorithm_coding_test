@@ -122,3 +122,17 @@ public:
 
 private:
 };
+
+class LeetCode_822 : public ISolution
+{
+public:
+	int flipgame(vector<int>& fronts, vector<int>& backs);
+	virtual void Drive() override;
+};
+
+class LeetCode_693 : public ISolution
+{
+public:
+	bool hasAlternatingBits(int n);
+	virtual void Drive() override;
+};

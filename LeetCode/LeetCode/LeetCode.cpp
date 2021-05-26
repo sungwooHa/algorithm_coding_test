@@ -3,6 +3,8 @@
 #include <iostream>
 #include <deque>
 #include <set>
+#include <algorithm>
+
 /// <summary>
 /// https://leetcode.com/problems/two-sum/
 /// </summary>
@@ -597,7 +599,7 @@ int LeetCode_53::maxSubArray_advanced(vector<int>& nums)
 	for (int i = 0; i < nums.size(); i++)
 	{
 		currsum += nums[i];
-		maxsum = max(maxsum, currsum);
+		maxsum = std::max(maxsum, currsum);
 		if (currsum < 0)
 		{
 			currsum = 0;
@@ -727,4 +729,70 @@ int LeetCode_1375::numTimesAllBlue(vector<int>& light)
 
 void LeetCode_1375::Drive()
 {
+}
+
+int LeetCode_822::flipgame(vector<int>& fronts, vector<int>& backs)
+{
+	int answer = INT_MAX;
+	for (int i = 0; i < fronts.size(); i++)
+	{
+		if (fronts[i] == backs[i])
+			continue;
+
+		std::swap(fronts[i], backs[i]);
+
+		if(auto itrFront = find(fronts.begin(), fronts.end(), backs[i]); itrFront == fronts.end())
+		{
+			answer = std::min(answer, backs[i]);
+		}
+
+		if (auto itrBack = find(backs.begin(), backs.end(), fronts[i]); itrBack == backs.end())
+		{
+			answer = std::min(answer, fronts[i]);
+		}
+
+		std::swap(fronts[i], backs[i]);
+	}
+	return answer == INT_MAX ? 0 : answer;
+}
+
+void LeetCode_822::Drive()
+{
+	vector<int> front = { 1, 2, 4, 4, 7 };
+	vector<int> back = { 1, 3, 4, 1, 3 };
+
+
+	assert(flipgame(front, back) == 2);
+
+	front = { 1, 1 };
+	back = { 1, 2 };
+	assert(flipgame(front, back) == 2);
+
+	front = { 2, 2, 5, 1, 2 };
+	back = { 4, 1, 2, 1, 1 };
+	assert(flipgame(front, back) == 2);
+
+	front = { 1, 1 };
+	back = { 2, 2 };
+	assert(flipgame(front, back) == 1);
+}
+
+bool LeetCode_693::hasAlternatingBits(int n)
+{	
+	bool val = n % 2;
+	n = n >> 1;
+	while (n > 0)
+	{
+		if (val == n % 2)
+			return false;
+		val = n % 2;
+		n = n >> 1;
+	}
+	return true;
+}
+
+void LeetCode_693::Drive()
+{
+	assert(hasAlternatingBits(5) == true);
+	assert(hasAlternatingBits(4) == false);
 }
