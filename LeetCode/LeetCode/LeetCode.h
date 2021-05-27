@@ -145,3 +145,11 @@ public:
 
 private:
 };
+class LeetCode_67 : public ISolution
+{
+public:
+	string addBinary(string a, string b);
+	virtual void Drive() override;
+
+private:
+};

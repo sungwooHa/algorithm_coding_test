@@ -871,3 +871,108 @@ void LeetCode_66::Drive()
 	lambda_verify(expect, res);
 
 }
+
+string LeetCode_67::addBinary(string a, string b)
+{
+	string res;
+	bool preVal(false);
+	int idxA(a.length() - 1);
+	int idxB(b.length() - 1);
+
+	while (idxA >= 0 || idxB >= 0)
+	{
+		if (idxA < 0)
+		{
+			if (preVal)
+			{
+				if (b[idxB] == '0')
+				{
+					preVal = false;
+					res.insert(res.begin(), '1');
+				}
+				else
+				{
+					preVal = true;
+					res.insert(res.begin(), '0');
+				}
+			}
+			else
+			{
+				res.insert(res.begin(), b[idxB]);
+			}
+			idxB--;
+			continue;
+		}
+
+		if (idxB < 0)
+		{
+			if (preVal)
+			{
+				if (a[idxA] == '0')
+				{
+					preVal = false;
+					res.insert(res.begin(), '1');
+				}
+				else
+				{
+					preVal = true;
+					res.insert(res.begin(), '0');
+				}
+			}
+			else
+			{
+				res.insert(res.begin(), a[idxA]);
+			}
+			idxA--;
+			continue;
+		}
+
+		if (preVal)
+		{
+			if (a[idxA] == '1' && b[idxB] == '1')
+			{
+				res.insert(res.begin(), '1');
+			}
+			else if (a[idxA] == '0' && b[idxB] == '0')
+			{
+				preVal = false;
+				res.insert(res.begin(), '1');
+			}
+			else
+			{
+				res.insert(res.begin(), '0');
+			}
+		}
+		else
+		{
+			if (a[idxA] == '1' && b[idxB] == '1')
+			{
+				preVal = true;
+				res.insert(res.begin(), '0');
+			}
+			else if (a[idxA] == '0' && b[idxB] == '0')
+			{
+				res.insert(res.begin(), '0');
+			}
+			else
+			{
+				res.insert(res.begin(), '1');
+			}
+		}
+
+		idxA--;
+		idxB--;
+
+	}
+
+	if (preVal)
+		res.insert(res.begin(), '1');
+	return res;
+}
+
+void LeetCode_67::Drive()
+{
+	assert(addBinary("11", "1") == "100");
+	assert(addBinary("1010", "1011") == "10101");
+	assert(addBinary("1", "111") == "1000");
+}
