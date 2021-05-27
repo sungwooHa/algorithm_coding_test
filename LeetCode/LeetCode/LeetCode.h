@@ -122,3 +122,12 @@ public:
 
 private:
 };
+
+class LeetCode_66 : public ISolution
+{
+public:
+	vector<int> plusOne(vector<int>& digits);
+	virtual void Drive() override;
+
+private:
+};

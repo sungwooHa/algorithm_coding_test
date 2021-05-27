@@ -728,3 +728,78 @@ int LeetCode_1375::numTimesAllBlue(vector<int>& light)
 void LeetCode_1375::Drive()
 {
 }
+
+vector<int> LeetCode_66::plusOne(vector<int>& digits)
+{
+	auto lastIdx = digits.size() - 1;
+
+	for (int lastIdx = digits.size() - 1; lastIdx >= 0; --lastIdx)
+	{
+		if (digits[lastIdx] < 9)
+		{
+			digits[lastIdx]++;
+			return digits;
+		}
+
+		digits[lastIdx] = 0;
+	}
+
+	digits[0]++;
+	digits.push_back(0);
+	return digits;
+
+	while (true)
+	{
+		if (digits[lastIdx] == 9)
+		{
+			digits[lastIdx] = 0;
+			if (lastIdx == 0)
+			{
+				digits.insert(digits.begin(), 1);
+				break;
+			}
+			else
+			{
+				lastIdx -= 1;
+			}
+		}
+		else
+		{
+			digits[lastIdx] += 1;
+			break;
+		}
+	}
+	return digits;
+}
+
+void LeetCode_66::Drive()
+{
+
+	auto lambda_verify = [&](const std::vector<int>& res, const std::vector<int>& expect) -> void
+	{
+		assert(res.size() == expect.size());
+		for (auto i = 0; i < expect.size(); i++)
+		{
+			assert(res[i] == expect[i]);
+		}
+	};
+
+	std::vector<int> nums, expect;
+	nums = { 1, 2, 3 };
+	expect = { 1, 2, 4 };
+
+	auto res = plusOne(nums);
+
+	lambda_verify(expect, res);
+
+	nums = { 9 };
+	expect = { 1,0 };
+	res = plusOne(nums);
+	lambda_verify(expect, res);
+
+	nums = { 0 };
+	expect = { 1 };
+	res = plusOne(nums);
+	lambda_verify(expect, res);
+
+}
