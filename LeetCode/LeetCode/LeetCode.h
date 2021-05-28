@@ -172,3 +172,12 @@ public:
 
 private:
 };
+
+class LeetCode_69 : public ISolution
+{
+public:
+	int mySqrt(int x);
+	virtual void Drive() override;
+
+private:
+};

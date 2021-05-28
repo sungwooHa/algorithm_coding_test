@@ -1144,3 +1144,37 @@ void LeetCode_150::Drive()
 	assert(evalRPN_other(tockens) == 6);
 
 }
+
+int LeetCode_69::mySqrt(int x)
+{
+	if (!x) return 0;
+
+	unsigned long long min = 0;
+	unsigned long long max = x;
+
+	unsigned long long  res(0);
+	while (min <= max)
+	{
+		unsigned long long mid = (min + max) >> 1;
+		unsigned long long square = mid * mid;
+
+		if (square == x)
+			return mid;
+
+		if (square < x)
+		{
+			min = mid + 1;
+			res = mid;
+		}
+		else //  x < (mid*mid)
+		{
+			max = mid - 1;
+		}
+	}
+
+	return res;
+}
+
+void LeetCode_69::Drive()
+{
+}
