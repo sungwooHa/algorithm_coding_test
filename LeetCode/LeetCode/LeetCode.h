@@ -153,3 +153,22 @@ public:
 
 private:
 };
+
+class LeetCode_1073 : public ISolution
+{
+public:
+	vector<int> addNegabinary(vector<int>& arr1, vector<int>& arr2);
+	virtual void Drive() override;
+
+private:
+};
+
+class LeetCode_150 : public ISolution
+{
+public:
+	int evalRPN(vector<string>& tokens);
+	int evalRPN_other(vector<string>& tokens);
+	virtual void Drive() override;
+
+private:
+};

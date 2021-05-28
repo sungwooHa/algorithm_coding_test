@@ -4,7 +4,9 @@
 #include <deque>
 #include <set>
 #include <algorithm>
-
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
 /// <summary>
 /// https://leetcode.com/problems/two-sum/
 /// </summary>
@@ -975,4 +977,170 @@ void LeetCode_67::Drive()
 	assert(addBinary("11", "1") == "100");
 	assert(addBinary("1010", "1011") == "10101");
 	assert(addBinary("1", "111") == "1000");
+}
+
+vector<int> LeetCode_1073::addNegabinary(vector<int>& arr1, vector<int>& arr2)
+{
+	int idx1 = arr1.size() - 1;
+	int idx2 = arr2.size() - 1;
+
+	//example
+	//1,1,1,1,1
+	//    1,0,1
+	//+ - + - +  //-부터
+	//---------
+	//1,0,0,0,0
+
+	//1,1,1,1,1 -->  11
+	//  1,0,1,0 --> -10
+	//+ - + - +  //-부터
+	//---------
+	//0,0,0,0,1
+
+	std::vector<int> answer;
+	int carray(0);
+	while (idx1 >= 0 || idx2 >= 0 || carray != 0) //carray가 남아있으면 push back해야함
+	{
+		//거꾸로.
+		//마지막 index부터 더함
+		if (idx1 >= 0)
+			carray += arr1[idx1--];
+		if (idx2 >= 0)
+			carray += arr2[idx2--];
+
+		//and 연산을 통해서.
+		//3(11) & 1 == 1;
+		//2(10) & 1 == 0
+		//1( 1)	& 1 == 1;
+		//0( 0)	& 1 == 0
+		answer.push_back(abs(carray) & 1); //(1 or 0)
+		
+		//next carray
+		if (carray > 1)  //바로 앞의 자릿수의 값과 - 해야함(부호가 다르기 떄문)
+			carray = -1;
+		else if (carray < 0) //-1
+			carray = 1;
+		else
+			carray = 0;  //0,1
+	}
+
+	while (answer.size() > 1 && answer.back() == 0) //제일 앞자리가 0일 경우
+		answer.pop_back();
+
+	std::reverse(answer.begin(), answer.end());
+
+	return vector<int>(answer);
+}
+
+void LeetCode_1073::Drive()
+{
+}
+
+int LeetCode_150::evalRPN(vector<string>& tokens)
+{
+	std::unordered_map<string, int> op; //operator
+	op.emplace("+", 0);
+	op.emplace("-", 1);
+	op.emplace("*", 2);
+	op.emplace("/", 3);
+
+	auto lambda_calc = [&](int val1, int val2, int op) -> int
+	{
+		switch (op)
+		{
+		case 0:
+			return val1 + val2;
+		case 1:
+			return val1 - val2;
+		case 2:
+			return val1 * val2;
+		case 3:
+			return val1 / val2;
+		default:
+			break;
+		}
+		assert(false);
+		return 0;
+	};
+
+	std::queue<string> qTocken;
+	for (const auto& token : tokens)
+		qTocken.push(token);
+
+	std::stack<int> sNumb;
+	while (!qTocken.empty())
+	{
+		auto tocken = qTocken.front();
+		qTocken.pop();
+		if (op.end() == op.find(tocken))
+		{
+			//숫자
+			sNumb.push(std::atoi(tocken.c_str()));
+		}
+		else
+		{
+			//operator 연산
+			auto val2 = sNumb.top();
+			sNumb.pop();
+			auto val1 = sNumb.top();
+			sNumb.pop();
+
+			auto res = lambda_calc(val1, val2, op[tocken]);
+			sNumb.push(res);
+		}
+	}
+
+	if (sNumb.size() != 1)
+	{
+		assert(false);
+		return 0;
+	}
+
+	return sNumb.top();
+}
+
+int LeetCode_150::evalRPN_other(vector<string>& tokens)
+{
+	stack<int>st;
+	for (auto it : tokens)
+	{
+		if (it == "+" || it == "-" || it == "*" || it == "/")
+		{
+			int f = st.top(); st.pop();
+			int s = st.top(); st.pop();
+
+			if (it == "+")
+			{
+				int r = s + f;  st.push(r);
+			}
+			else if (it == "*")
+			{
+				int r = s * f;  st.push(r);
+			}
+			else if (it == "-")
+			{
+				int r = s - f;   st.push(r);
+			}
+			else if (it == "/")
+			{
+				int r = s / f;   st.push(r);
+			}
+		}
+		else { st.push(stoi(it)); }
+	}
+	return st.top();
+}
+
+void LeetCode_150::Drive()
+{
+	vector<string> tockens;
+	tockens = { "10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+" };
+	assert(evalRPN_other(tockens) == 22);
+
+	tockens = { "2", "1", "+", "3", "*" };
+	assert(evalRPN_other(tockens) == 9);
+
+	tockens = { "4", "13", "5", "/", "+" };
+	assert(evalRPN_other(tockens) == 6);
+
 }
