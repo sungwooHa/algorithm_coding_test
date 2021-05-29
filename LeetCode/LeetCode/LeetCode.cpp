@@ -1245,3 +1245,24 @@ void LeetCode_83::Drive()
 
 	auto val = deleteDuplicates(first);
 }
+
+void LeetCode_94::search(TreeNode* curNode, std::vector<int>& answer)
+{
+	if (!curNode)
+		return;
+
+	search(curNode->left, answer);
+	answer.push_back(curNode->val);
+	search(curNode->right, answer);
+}
+
+vector<int> LeetCode_94::inorderTraversal(TreeNode* root)
+{
+	std::vector<int> answer;
+	search(root, answer);
+	return answer;
+}
+
+void LeetCode_94::Drive()
+{
+}

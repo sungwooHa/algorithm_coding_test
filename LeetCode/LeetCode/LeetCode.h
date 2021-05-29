@@ -199,3 +199,13 @@ public:
 
 private:
 };
+
+class LeetCode_94 : public ISolution
+{
+public:
+	void search(TreeNode* curNode, std::vector<int>& answer);
+	vector<int> inorderTraversal(TreeNode* root);
+	virtual void Drive() override;
+
+private:
+};
