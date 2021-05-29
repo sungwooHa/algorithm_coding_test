@@ -1286,3 +1286,71 @@ bool LeetCode_100::isSameTree(TreeNode* p, TreeNode* q)
 void LeetCode_100::Drive()
 {
 }
+
+void LeetCode_101::PreorderSearch(TreeNode* curNode, std::vector<int>& answer)
+{
+	if (!curNode)
+	{
+		answer.push_back(-101);
+		return;
+	}
+
+	answer.push_back(curNode->val);
+	PreorderSearch(curNode->left, answer);
+	PreorderSearch(curNode->right, answer);
+}
+
+void LeetCode_101::rPreorderSearch(TreeNode* curNode, std::vector<int>& answer)
+{
+	if (!curNode)
+	{
+		answer.push_back(-101);
+		return;
+	}
+
+	answer.push_back(curNode->val);
+	rPreorderSearch(curNode->right, answer);
+	rPreorderSearch(curNode->left, answer);
+}
+
+bool LeetCode_101::isSymmetric(TreeNode* root)
+{
+	std::vector<int> left, right;
+	PreorderSearch(root->left, left);
+	rPreorderSearch(root->right, right);
+
+	if (left.size() != right.size())
+		return false;
+
+	for (int i = 0; i < left.size(); i++)
+	{
+
+		if (left[i] != right[i])
+			return false;
+	}
+
+	return true;
+
+	//			    1
+	//		 2    	       3
+	//     4     5     6        7
+	//    8 9  10 11  12 13   14 15
+	//1
+	//2,4,8 ,9 ,5,10,11
+	//3,6,12,13,7,14,15
+
+	//1
+	//3,7,15,14,6,13,12
+
+	//[1,2,2,2,null,2]
+	//				1
+	//            2   2
+	//			2 null 2, ?
+
+
+	return true;
+}
+
+void LeetCode_101::Drive()
+{
+}

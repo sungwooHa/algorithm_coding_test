@@ -218,3 +218,14 @@ public:
 
 private:
 };
+
+class LeetCode_101 : public ISolution
+{
+public:
+	void PreorderSearch(TreeNode* curNode, std::vector<int>& answer);
+	void rPreorderSearch(TreeNode* curNode, std::vector<int>& answer);
+	bool isSymmetric(TreeNode* root);
+	virtual void Drive() override;
+
+private:
+};
