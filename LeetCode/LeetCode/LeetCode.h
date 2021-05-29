@@ -229,3 +229,14 @@ public:
 
 private:
 };
+
+
+class LeetCode_104 : public ISolution
+{
+public:
+	int find(TreeNode* node, int depth);
+	int maxDepth(TreeNode* root);
+	virtual void Drive() override;
+
+private:
+};

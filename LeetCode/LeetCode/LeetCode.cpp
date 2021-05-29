@@ -1354,3 +1354,23 @@ bool LeetCode_101::isSymmetric(TreeNode* root)
 void LeetCode_101::Drive()
 {
 }
+
+int LeetCode_104::find(TreeNode* node, int depth)
+{
+	if (!node)
+		return depth;
+
+	int leftDepth = find(node->left, depth + 1);
+	int rightDepth = find(node->right, depth + 1);
+
+	return leftDepth < rightDepth ? rightDepth : leftDepth;
+}
+
+int LeetCode_104::maxDepth(TreeNode* root)
+{
+	return find(root, 0);
+}
+
+void LeetCode_104::Drive()
+{
+}
