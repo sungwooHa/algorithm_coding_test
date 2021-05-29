@@ -190,3 +190,12 @@ public:
 
 private:
 };
+
+class LeetCode_83 : public ISolution
+{
+public:
+	ListNode* deleteDuplicates(ListNode* head);
+	virtual void Drive() override;
+
+private:
+};

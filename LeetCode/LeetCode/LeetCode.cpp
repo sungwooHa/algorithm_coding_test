@@ -1215,3 +1215,33 @@ void LeetCode_70::Drive()
 	
 	return;
 }
+
+ListNode* LeetCode_83::deleteDuplicates(ListNode* head)
+{
+	auto first = head;
+	while (head)
+	{
+		int preVal = head->val;
+		while (head->next)
+		{
+			if (preVal == head->next->val)
+				head->next = head->next->next;
+			else
+			{
+				break;
+			}
+		}
+
+		head = head->next;
+	}
+	return first;
+}
+
+void LeetCode_83::Drive()
+{
+	std::vector<int> sv;
+	sv = { 1, 1, 1 };
+	auto first = utilClass::CreateList(sv);
+
+	auto val = deleteDuplicates(first);
+}
