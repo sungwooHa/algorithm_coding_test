@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	LeetCode_150 leetcode;
+	LeetCode_70 leetcode;
 	leetcode.Drive();
 	return 0 ;
 }

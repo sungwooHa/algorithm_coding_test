@@ -181,3 +181,12 @@ public:
 
 private:
 };
+
+class LeetCode_70 : public ISolution
+{
+public:
+	int climbStairs(int n);
+	virtual void Drive() override;
+
+private:
+};

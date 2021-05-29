@@ -1178,3 +1178,40 @@ int LeetCode_69::mySqrt(int x)
 void LeetCode_69::Drive()
 {
 }
+
+
+int LeetCode_70::climbStairs(int n)
+{
+	//1 :1 = 1
+	//2 :2 = 1+1, 2,
+	//3 :3 = 1+1+1, 1+2, 2+1
+	//4 :5 = 1+1+1+1, 1+1+2, 1+2+1, 2+1+1. 2+2
+	//5 :8 = 1+1+1+1+1, 1+1+1+2, 1+1+2+1, 1+2+1+1, 2+1+1+1. 1+2+2, 2+1+2, 2+2+1, 
+	
+
+	if (n == 1)
+		return 1;
+
+	if (n == 2)
+		return 2;
+
+
+	int cur1 = 1;
+	int cur2 = 2;
+
+	for (int step = 3; step <= n; step++)
+	{
+		int cur3 = cur1 + cur2;
+		cur1 = cur2;
+		cur2 = cur3;
+	}
+
+	return cur2;
+}
+
+void LeetCode_70::Drive()
+{
+	auto val = climbStairs(44);
+	
+	return;
+}
