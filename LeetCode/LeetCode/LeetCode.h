@@ -209,3 +209,12 @@ public:
 
 private:
 };
+
+class LeetCode_100 : public ISolution
+{
+public:
+	bool isSameTree(TreeNode* p, TreeNode* q);
+	virtual void Drive() override;
+
+private:
+};

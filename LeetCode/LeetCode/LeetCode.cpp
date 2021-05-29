@@ -1263,6 +1263,26 @@ vector<int> LeetCode_94::inorderTraversal(TreeNode* root)
 	return answer;
 }
 
-void LeetCode_94::Drive()
+bool LeetCode_100::isSameTree(TreeNode* p, TreeNode* q)
+{
+	if (!p && !q)
+		return true;
+
+	if (!p || !q)
+		return false;
+
+	if (p->val != q->val)
+		return false;
+
+	if (!isSameTree(p->left, q->left))
+		return false;
+
+	if (!isSameTree(p->right, q->right))
+		return false;
+
+	return true;
+}
+
+void LeetCode_100::Drive()
 {
 }
