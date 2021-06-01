@@ -1464,7 +1464,7 @@ int LeetCode_1334::findTheCity(int n, vector<vector<int>>& edges, int distanceTh
 			if (resCity < city)
 			{
 				resCity = city; //city numb 높은 걸로 바꿈
-				numbVisitCity == tmpNumbCity;
+				numbVisitCity = tmpNumbCity;
 			}
 		}
 	}
@@ -1494,4 +1494,50 @@ void LeetCode_1334::Drive()
 	edges = {{0, 1, 2}, {0, 4, 8}, {1, 2, 3}, {1, 4, 2}, {2, 3, 1}, {3, 4, 1}};
 	distanceThresHold = 2;
 	assert(findTheCity(n, edges, distanceThresHold) == 0);
+}
+
+vector<TreeNode*> LeetCode_95::GeneratePartialTree(int start, int end)
+{
+	std::vector<TreeNode*> resArrTree;
+
+	if (start > end) //null
+	{
+		resArrTree.push_back(NULL);
+		return resArrTree;
+	}
+
+	for (int i = start; i <= end; ++i)
+	{
+		auto leftTree = GeneratePartialTree(start, i - 1);
+		auto rightTree = GeneratePartialTree(i + 1, end);
+
+		for (auto left : leftTree)
+		{
+			for (auto right : rightTree)
+			{
+				TreeNode* root = new TreeNode(i);
+				root->left = left;
+				root->right = right;
+				resArrTree.push_back(root);
+			}
+		}
+	}
+
+	return vector<TreeNode*>(resArrTree);
+}
+
+vector<TreeNode*> LeetCode_95::generateTrees(int n)
+{
+	vector<TreeNode*> arrTree;
+	if (n == 0) return arrTree;
+
+	return GeneratePartialTree(1, n);
+}
+
+void LeetCode_95::Drive()
+{
+	auto tree1 = generateTrees(3);
+	auto tree2 = generateTrees(1);
+
+
 }

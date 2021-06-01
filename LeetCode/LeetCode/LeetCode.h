@@ -254,6 +254,9 @@ private:
 class LeetCode_95 : public ISolution
 {
 public:
+
+	vector<TreeNode*> GeneratePartialTree(int start, int end);
+	vector<TreeNode*> generateTrees(int n);
 	virtual void Drive() override;
 
 private:
