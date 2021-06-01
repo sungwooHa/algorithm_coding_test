@@ -1374,3 +1374,124 @@ int LeetCode_104::maxDepth(TreeNode* root)
 void LeetCode_104::Drive()
 {
 }
+
+int LeetCode_1334::findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold)
+{
+	//from, to, weight
+	//모든 node를연결
+	//특정 시티에서 distanceThresHold값이 넘지않아야함
+	//들리는 시티수가 가장 많고
+	//시티수가 같다면, 시티 numb가 가장높은 city를 출력
+
+	//각 city에서 distanceThreshold내에 갈 수 있는 최소비용 경로 구하기
+	//가장 많은 city를 방문할 수 있는 city구하기
+	//city numb가 가장큰 city 구하기
+
+
+	//create graph
+	std::unordered_map<int, std::vector<std::pair<int, int>>> graph; //from, arr( std::pair(to, weight))
+
+	for (const auto& info : edges)
+	{
+		graph[info[0]].push_back(std::make_pair(info[1], info[2]));
+		graph[info[1]].push_back(std::make_pair(info[0], info[2])); //bidirection
+	}
+
+	//answer
+	int resCity(0);
+	int numbVisitCity(INT_MAX);
+	////
+	for (int city = 0; city < n; city++)
+	{
+		std::unordered_map<int, int> mNextCity; //next city, weight
+		for (int i = 0; i < n; i++)
+			mNextCity[i] = INT_MAX;
+
+		mNextCity[city] = 0; //myself
+
+		std::priority_queue<std::pair<int, int>> pqWeightCity;
+		pqWeightCity.push(std::make_pair(mNextCity[city], city));
+
+		while (!pqWeightCity.empty())
+		{
+			auto weight = -pqWeightCity.top().first; //가장 가까운순서로 하기때문에,
+			auto visitCity = pqWeightCity.top().second;
+
+			pqWeightCity.pop();
+
+			if (weight > distanceThreshold)//threshold 넘는건 방문 필요 없음.
+				continue;
+
+			if (weight < mNextCity[visitCity]) //weight가 클 경우 할 필요 없음
+				continue;
+
+			//현재 방문하는 city에 연결되어있는 city들
+			for (const auto& edgeInfo : graph[visitCity])
+			{
+				auto nextCity = edgeInfo.first;
+				auto nextWeight = edgeInfo.second;
+
+				if (weight + nextWeight > distanceThreshold)
+					continue;
+
+				if (mNextCity[nextCity] > (nextWeight + weight))
+				{
+					mNextCity[nextCity] = nextWeight + weight;
+					pqWeightCity.push({ -mNextCity[nextCity], nextCity });
+				}
+			}
+		}
+
+		auto tmpNumbCity(0);
+		for (const auto& visitCity : mNextCity)
+		{
+			if (visitCity.first == city) //자기자신 제외
+				continue;
+
+			//thredhold 보다 클 경우 제외
+			if (visitCity.second  > distanceThreshold)
+				continue;
+			tmpNumbCity++;
+		}
+
+		if (tmpNumbCity < numbVisitCity)
+		{
+			resCity = city; //visity city 적은 순으로
+			numbVisitCity = tmpNumbCity;
+		}
+		else if (tmpNumbCity == numbVisitCity)
+		{
+			if (resCity < city)
+			{
+				resCity = city; //city numb 높은 걸로 바꿈
+				numbVisitCity == tmpNumbCity;
+			}
+		}
+	}
+
+	return resCity;
+}
+
+void LeetCode_1334::Drive()
+{
+
+	int n = 0;
+	std::vector<std::vector<int>> edges;
+	int distanceThresHold = 0;
+
+	n = 4;
+	edges = { { 0, 1, 3 }, { 1, 2, 1 }, { 1, 3, 4 }, { 2, 3, 1 } };
+	distanceThresHold = 4;
+	assert(findTheCity(n, edges, distanceThresHold) == 3);
+
+	n = 5;
+	edges = { { 0, 1, 2 }, { 0, 4, 8 }, { 1, 2, 3 }, { 1, 4, 2 }, { 2, 3, 1 }, { 3, 4, 1 } };
+	distanceThresHold = 2;
+	assert(findTheCity(n, edges, distanceThresHold) == 0);
+
+
+	n = 5;
+	edges = {{0, 1, 2}, {0, 4, 8}, {1, 2, 3}, {1, 4, 2}, {2, 3, 1}, {3, 4, 1}};
+	distanceThresHold = 2;
+	assert(findTheCity(n, edges, distanceThresHold) == 0);
+}

@@ -240,3 +240,21 @@ public:
 
 private:
 };
+
+
+class LeetCode_1334 : public ISolution
+{
+public:
+	int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold);
+	virtual void Drive() override;
+
+private:
+};
+
+class LeetCode_95 : public ISolution
+{
+public:
+	virtual void Drive() override;
+
+private:
+};
