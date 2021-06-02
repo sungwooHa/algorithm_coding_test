@@ -1541,3 +1541,67 @@ void LeetCode_95::Drive()
 
 
 }
+
+TreeNode* LeetCode_108::sortedArrayToBST(vector<int>& nums)
+{
+	//bst
+	//nums를 정렬하고 하면되지 않나?
+	// 
+	//root[0] : 0
+	// 
+	//left[1] :  0+1
+	//right[2] : 0+2  
+	// 
+	//left-left[3] 0 + 1 + 2
+	//left-right[4] 0 + 1 + 3
+	//right-left[5]  0 + 2 + 3
+	//right-right[6] 0 + 2 + 4
+	//
+	//left-left-left[7] 0 + 1 + 2 + 4
+	//left-left-right[8] 0 + 1 + 2 + 5
+	//left-right-left[9] 0 + 1 + 3 + 5
+	//left-right-right[10] 0 + 1 + 3 + 6
+	// 
+	//right-left-left[11] 0 + 2 + 3 + 6
+	//right-left-right[12] 0 + 2 + 3 + 7
+	//right-right-left[13] 0 + 2 + 4 + 7
+	//right-right-right[14] 0 + 2 + 4 + 8
+
+
+	// min, max idx
+	//mid  = min + max >>1
+
+	if (nums.size() == 0)
+		return nullptr;
+
+	return GeneratedTree(0, nums.size()-1, nums);
+	
+}
+
+TreeNode* LeetCode_108::GeneratedTree(int idxMin, int idxMax, const std::vector<int> nums)
+{
+	if (idxMin > idxMax)
+		return nullptr;
+
+	auto mid = (idxMin + idxMax) >> 1;
+	auto left = GeneratedTree(idxMin, mid - 1, nums);
+	auto right = GeneratedTree(mid + 1, idxMax, nums);
+	TreeNode* node = new TreeNode(nums[mid]);
+	node->left = left;
+	node->right = right;
+	return node;
+}
+
+void LeetCode_108::Drive()
+{
+	std::vector<int> nums;
+	nums = { -10, -3, 0, 5, 9 };
+	
+	auto val1 = sortedArrayToBST(nums);
+
+	nums = {1,3};
+	auto val2 = sortedArrayToBST(nums);
+
+	nums = { };
+	auto val3 = sortedArrayToBST(nums);
+}

@@ -261,3 +261,13 @@ public:
 
 private:
 };
+
+class LeetCode_108 : public ISolution
+{
+public:
+	TreeNode* sortedArrayToBST(vector<int>& nums);
+	TreeNode* GeneratedTree(int idxMin, int idxMax, const std::vector<int> nums);
+	virtual void Drive() override;
+
+private:
+};
