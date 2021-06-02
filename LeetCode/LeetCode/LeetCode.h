@@ -271,3 +271,12 @@ public:
 
 private:
 };
+class LeetCode_110 : public ISolution
+{
+public:
+	bool isBalanced(TreeNode* root);
+	bool GetHeight(int prevHeight, int& currHeight, TreeNode* curNode);
+	virtual void Drive() override;
+
+private:
+};

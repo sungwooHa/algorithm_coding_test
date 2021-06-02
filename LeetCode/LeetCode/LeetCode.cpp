@@ -7,6 +7,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <queue>
+#include <optional>
+
 /// <summary>
 /// https://leetcode.com/problems/two-sum/
 /// </summary>
@@ -1604,4 +1606,77 @@ void LeetCode_108::Drive()
 
 	nums = { };
 	auto val3 = sortedArrayToBST(nums);
+}
+
+bool LeetCode_110::isBalanced(TreeNode* root)
+{
+
+	//		     1
+	//		2	    2
+	//	3	  3  null null
+	//4  4
+
+	int curHeight(0);
+	return GetHeight(0, curHeight, root);
+}
+
+bool LeetCode_110::GetHeight(int prevHeight, int& currHeight, TreeNode* curNode)
+{
+	if (curNode == nullptr)
+	{
+		currHeight = prevHeight;
+		return true;
+	}
+
+	int lHeight(0), rHeight(0);
+	if (!GetHeight(prevHeight + 1, lHeight, curNode->left)) return false;
+	if (!GetHeight(prevHeight + 1, rHeight, curNode->right)) return false;
+
+	if (abs(lHeight - rHeight) < 2)
+	{
+		currHeight = max(lHeight, rHeight);
+		return true;
+	}
+	return false;
+}
+
+void LeetCode_110::Drive()
+{
+	//	   3,
+	//	9,	 20,
+	//		15, 7 
+	//== true
+
+	auto lambda_generate = [&](TreeNode* curNode, std::optional<int> left, std::optional<int> right)->void
+	{
+		if (!curNode) return;
+
+		if(left)
+			curNode->left = new TreeNode(left.value());
+		if(right)
+			curNode->right = new TreeNode(right.value());
+	};
+
+	{
+		TreeNode* root = new TreeNode(3);
+		lambda_generate(root, 9, 20);
+		lambda_generate(root->right, 15, 7);
+		isBalanced(root);
+
+	}
+
+	// 
+	//				1,
+	//			2,      2,
+	//		3,	3,   null,null,
+	//    4,  4
+	//false
+
+	{
+		TreeNode* root = new TreeNode(3);
+		lambda_generate(root, 2, 2);
+		lambda_generate(root->left, 3, 3);
+		lambda_generate(root->left->left, 4, 4);
+		isBalanced(root);
+	}
 }
