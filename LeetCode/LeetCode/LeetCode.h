@@ -280,3 +280,35 @@ public:
 
 private:
 };
+
+class LeetCode_530 : public ISolution
+{
+public:
+	void inOrder(TreeNode* node, std::vector<int>& treeValue);
+	int getMinimumDifference(TreeNode* root);
+	virtual void Drive() override;
+
+private:
+};
+
+
+class LeetCode_1394 : public ISolution
+{
+public:
+	int findLucky(vector<int>& arr);
+	virtual void Drive() override;
+
+private:
+};
+
+class LeetCode_111 : public ISolution
+{
+public:
+	void GetDepth(TreeNode* node, int prevDepth, int& lastDepth);
+	int minDepth(TreeNode* root);
+
+	int minDepth_best(TreeNode* root);
+	virtual void Drive() override;
+
+private:
+};

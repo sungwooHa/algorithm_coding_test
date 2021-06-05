@@ -5,6 +5,7 @@
 #include <set>
 #include <algorithm>
 #include <unordered_map>
+#include <map>
 #include <unordered_set>
 #include <queue>
 #include <optional>
@@ -1679,4 +1680,107 @@ void LeetCode_110::Drive()
 		lambda_generate(root->left->left, 4, 4);
 		isBalanced(root);
 	}
+}
+
+void LeetCode_530::inOrder(TreeNode* node, std::vector<int>& treeValue)
+{
+	if (!node) return;
+
+	inOrder(node->left, treeValue);
+	treeValue.push_back(node->val);
+	inOrder(node->right, treeValue);
+}
+
+int LeetCode_530::getMinimumDifference(TreeNode* root)
+{
+	std::vector<int> treeValue;//sorted
+	
+	inOrder(root, treeValue);
+
+	if (treeValue.size() == 1)
+		return treeValue.front();
+
+	int min(INT_MAX);
+	for (int i = 0; i < treeValue.size()-1; ++i)
+	{
+		min = std::min(treeValue[i + 1] - treeValue[i], min);
+	}
+
+	return min;
+}
+
+void LeetCode_530::Drive()
+{
+}
+
+int LeetCode_1394::findLucky(vector<int>& arr)
+{
+	std::map<int, int> mapFrequency;
+
+	for (const auto& val : arr) mapFrequency[val]++;
+
+	int luckyNumb(-1);
+	for (const auto& [key, val] : mapFrequency)
+	{
+		if (key == val)
+			luckyNumb = key;
+	}
+
+	return luckyNumb;
+}
+
+void LeetCode_1394::Drive()
+{
+}
+
+void LeetCode_111::GetDepth(TreeNode* node, int prevDepth, int& lastDepth)
+{
+	if (!node->left && !node->right)
+	{
+		lastDepth = prevDepth;
+		return;
+	}
+
+	int leftLastDepth(INT_MAX);
+	int rightLastDepth(INT_MAX);
+	if (node->left)
+	{
+		GetDepth(node->left, prevDepth + 1, leftLastDepth);
+		lastDepth = std::min(lastDepth, leftLastDepth);
+	}
+
+	if (node->right)
+	{
+		GetDepth(node->right, prevDepth + 1, rightLastDepth);
+		lastDepth = std::min(lastDepth, rightLastDepth);
+	}
+	
+	return;
+}
+
+int LeetCode_111::minDepth(TreeNode* root)
+{
+	int minDepth(INT_MAX);
+	GetDepth(root, 1, minDepth);
+	return minDepth;
+}
+
+int LeetCode_111::minDepth_best(TreeNode* root)
+{
+	if (!root)
+		return 0;
+
+	if (!root->left)
+		return 1 + minDepth_best(root->right);
+
+	if (!root->right)
+		return 1 + minDepth_best(root->left);
+
+	int ans = 1 + std::min(minDepth_best(root->left), minDepth_best(root->right));
+
+	return ans;
+}
+
+void LeetCode_111::Drive()
+{
 }
