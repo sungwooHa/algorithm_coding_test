@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <vector>
 #include <string>
 #include "ISoultion.h"
@@ -9,7 +9,7 @@ class LeetCode_1 : public ISolution {
 public:
 	vector<int> twoSum(vector<int>& nums, int target);
 
-	// ISolutionÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// ISolutionì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual void Drive() override;
 };
 
@@ -308,6 +308,15 @@ public:
 	int minDepth(TreeNode* root);
 
 	int minDepth_best(TreeNode* root);
+	virtual void Drive() override;
+
+private:
+};
+
+class LeetCode_1882 : public ISolution
+{
+public:
+	vector<int> assignTasks(vector<int>& servers, vector<int>& tasks);
 	virtual void Drive() override;
 
 private:

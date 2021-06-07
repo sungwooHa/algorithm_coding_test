@@ -1,4 +1,4 @@
-#include "LeetCode.h"
+ï»¿#include "LeetCode.h"
 #include <stack>
 #include <iostream>
 #include <deque>
@@ -13,9 +13,9 @@
 /// <summary>
 /// https://leetcode.com/problems/two-sum/
 /// </summary>
-/// <param name="nums"> ÀÔ·ÂµÇ´Â ¼ıÀÚ ¹è¿­ </param>
-/// <param name="target">2°³¸¦ ´õÇØ¼­ ¸¸µé°í ½ÍÀº ¼ıÀÚ </param>
-/// <returns>targetÀ» ¸¸µé ¼ö ÀÖ´Â µÎ ¼ö </returns>
+/// <param name="nums"> ì…ë ¥ë˜ëŠ” ìˆ«ì ë°°ì—´ </param>
+/// <param name="target">2ê°œë¥¼ ë”í•´ì„œ ë§Œë“¤ê³  ì‹¶ì€ ìˆ«ì </param>
+/// <returns>targetì„ ë§Œë“¤ ìˆ˜ ìˆëŠ” ë‘ ìˆ˜ </returns>
 vector<int> LeetCode_1::twoSum(vector<int>& nums, int target)
 {
 	std::vector<int> svRes(2);
@@ -78,7 +78,7 @@ bool LeetCode_9::isPalindrome(int x)
 		reverseX *= 10;
 		reverseX += pop;
 	}
-	//Â¦¼öÀÏ¶§, È¦¼öÀÏ¶§
+	//ì§ìˆ˜ì¼ë•Œ, í™€ìˆ˜ì¼ë•Œ
 
 	return x == reverseX / 10 || x == reverseX;
 }
@@ -106,8 +106,8 @@ void LeetCode_9::Drive()
 
 /// <summary>
 /// slidng window.
-/// ¿¬»êÀÌ µÉ °æ¿ì index+=2
-/// ¿¬»êÀÌ ¾ÈµÉ°æ¿ì ´ÜÀÏ ¿¬»ê ÈÄ index++
+/// ì—°ì‚°ì´ ë  ê²½ìš° index+=2
+/// ì—°ì‚°ì´ ì•ˆë ê²½ìš° ë‹¨ì¼ ì—°ì‚° í›„ index++
 /// </summary>
 /// <param name="s"></param>
 /// <returns></returns>
@@ -171,7 +171,7 @@ int LeetCode_13::romanToInt(string s)
 				index += 2;
 			}
 		}
-		else if (s.size() - 1 == index) //¸¶Áö¸·
+		else if (s.size() - 1 == index) //ë§ˆì§€ë§‰
 		{
 			answer += lambada_Convert(s[index]);
 			break;
@@ -201,9 +201,9 @@ void LeetCode_13::Drive()
 }
 
 /// <summary>
-/// prefix Ã£±â
+/// prefix ì°¾ê¸°
 /// </summary>
-/// <param name="strs">´Ü¾î ¹è¿­</param>
+/// <param name="strs">ë‹¨ì–´ ë°°ì—´</param>
 /// <returns></returns>
 string LeetCode_14::longestCommonPrefix(vector<string>& strs)
 {
@@ -251,8 +251,8 @@ void LeetCode_14::Drive()
 }
 
 /// <summary>
-/// °ıÈ£ Â¦¸ÂÃß±â.
-/// stack ÀÌ¿ëÇØ °è¼Ó input
+/// ê´„í˜¸ ì§ë§ì¶”ê¸°.
+/// stack ì´ìš©í•´ ê³„ì† input
 /// </summary>
 /// <param name="s"></param>
 /// <returns></returns>
@@ -680,8 +680,8 @@ TreeNode* LeetCode_105::buildTree(vector<int>& preorder, vector<int>& inorder)
 	if (preorder.empty() || inorder.empty())
 		return nullptr;
 
-	//preorderÀÇ ¸Ç¾Õ : root
-	//inordered: Áß°£ : root
+	//preorderì˜ ë§¨ì• : root
+	//inordered: ì¤‘ê°„ : root
 
 	int rootVal = *preorder.begin();
 	int rootIdx = 0;
@@ -696,11 +696,11 @@ TreeNode* LeetCode_105::buildTree(vector<int>& preorder, vector<int>& inorder)
 	//<1>,<2>,<3>,<4>,5,6
 	//<2>,<3>,<1>,5,<4>,6
 	// 
-	//inorderdÀÇ rootidx
+	//inorderdì˜ rootidx
 	//    left subtree - <rootIdx> - right  subtree
 
-	//leftSubTree°¡ ÀÖ°í, preOrderÀÇ root+1 ÀÇ °ªÀÌ Á¸ÀçÇÏ´Â°¡? --> ¾øÀ¸¸é rigth subtreeÀÇ root°ª
-	//preOrdredÀÇ root+1 == leftSubtree rootValue;
+	//leftSubTreeê°€ ìˆê³ , preOrderì˜ root+1 ì˜ ê°’ì´ ì¡´ì¬í•˜ëŠ”ê°€? --> ì—†ìœ¼ë©´ rigth subtreeì˜ rootê°’
+	//preOrdredì˜ root+1 == leftSubtree rootValue;
 
 	auto lambda_Tree = [&](int rootIdx, int leftIdx, int rightIdx) -> TreeNode*
 	{
@@ -990,28 +990,28 @@ vector<int> LeetCode_1073::addNegabinary(vector<int>& arr1, vector<int>& arr2)
 	//example
 	//1,1,1,1,1
 	//    1,0,1
-	//+ - + - +  //-ºÎÅÍ
+	//+ - + - +  //-ë¶€í„°
 	//---------
 	//1,0,0,0,0
 
 	//1,1,1,1,1 -->  11
 	//  1,0,1,0 --> -10
-	//+ - + - +  //-ºÎÅÍ
+	//+ - + - +  //-ë¶€í„°
 	//---------
 	//0,0,0,0,1
 
 	std::vector<int> answer;
 	int carray(0);
-	while (idx1 >= 0 || idx2 >= 0 || carray != 0) //carray°¡ ³²¾ÆÀÖÀ¸¸é push backÇØ¾ßÇÔ
+	while (idx1 >= 0 || idx2 >= 0 || carray != 0) //carrayê°€ ë‚¨ì•„ìˆìœ¼ë©´ push backí•´ì•¼í•¨
 	{
-		//°Å²Ù·Î.
-		//¸¶Áö¸· indexºÎÅÍ ´õÇÔ
+		//ê±°ê¾¸ë¡œ.
+		//ë§ˆì§€ë§‰ indexë¶€í„° ë”í•¨
 		if (idx1 >= 0)
 			carray += arr1[idx1--];
 		if (idx2 >= 0)
 			carray += arr2[idx2--];
 
-		//and ¿¬»êÀ» ÅëÇØ¼­.
+		//and ì—°ì‚°ì„ í†µí•´ì„œ.
 		//3(11) & 1 == 1;
 		//2(10) & 1 == 0
 		//1( 1)	& 1 == 1;
@@ -1019,7 +1019,7 @@ vector<int> LeetCode_1073::addNegabinary(vector<int>& arr1, vector<int>& arr2)
 		answer.push_back(abs(carray) & 1); //(1 or 0)
 		
 		//next carray
-		if (carray > 1)  //¹Ù·Î ¾ÕÀÇ ÀÚ¸´¼öÀÇ °ª°ú - ÇØ¾ßÇÔ(ºÎÈ£°¡ ´Ù¸£±â ‹š¹®)
+		if (carray > 1)  //ë°”ë¡œ ì•ì˜ ìë¦¿ìˆ˜ì˜ ê°’ê³¼ - í•´ì•¼í•¨(ë¶€í˜¸ê°€ ë‹¤ë¥´ê¸° ë–„ë¬¸)
 			carray = -1;
 		else if (carray < 0) //-1
 			carray = 1;
@@ -1027,7 +1027,7 @@ vector<int> LeetCode_1073::addNegabinary(vector<int>& arr1, vector<int>& arr2)
 			carray = 0;  //0,1
 	}
 
-	while (answer.size() > 1 && answer.back() == 0) //Á¦ÀÏ ¾ÕÀÚ¸®°¡ 0ÀÏ °æ¿ì
+	while (answer.size() > 1 && answer.back() == 0) //ì œì¼ ì•ìë¦¬ê°€ 0ì¼ ê²½ìš°
 		answer.pop_back();
 
 	std::reverse(answer.begin(), answer.end());
@@ -1077,12 +1077,12 @@ int LeetCode_150::evalRPN(vector<string>& tokens)
 		qTocken.pop();
 		if (op.end() == op.find(tocken))
 		{
-			//¼ıÀÚ
+			//ìˆ«ì
 			sNumb.push(std::atoi(tocken.c_str()));
 		}
 		else
 		{
-			//operator ¿¬»ê
+			//operator ì—°ì‚°
 			auto val2 = sNumb.top();
 			sNumb.pop();
 			auto val1 = sNumb.top();
@@ -1381,14 +1381,14 @@ void LeetCode_104::Drive()
 int LeetCode_1334::findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold)
 {
 	//from, to, weight
-	//¸ğµç node¸¦¿¬°á
-	//Æ¯Á¤ ½ÃÆ¼¿¡¼­ distanceThresHold°ªÀÌ ³ÑÁö¾Ê¾Æ¾ßÇÔ
-	//µé¸®´Â ½ÃÆ¼¼ö°¡ °¡Àå ¸¹°í
-	//½ÃÆ¼¼ö°¡ °°´Ù¸é, ½ÃÆ¼ numb°¡ °¡Àå³ôÀº city¸¦ Ãâ·Â
+	//ëª¨ë“  nodeë¥¼ì—°ê²°
+	//íŠ¹ì • ì‹œí‹°ì—ì„œ distanceThresHoldê°’ì´ ë„˜ì§€ì•Šì•„ì•¼í•¨
+	//ë“¤ë¦¬ëŠ” ì‹œí‹°ìˆ˜ê°€ ê°€ì¥ ë§ê³ 
+	//ì‹œí‹°ìˆ˜ê°€ ê°™ë‹¤ë©´, ì‹œí‹° numbê°€ ê°€ì¥ë†’ì€ cityë¥¼ ì¶œë ¥
 
-	//°¢ city¿¡¼­ distanceThreshold³»¿¡ °¥ ¼ö ÀÖ´Â ÃÖ¼Òºñ¿ë °æ·Î ±¸ÇÏ±â
-	//°¡Àå ¸¹Àº city¸¦ ¹æ¹®ÇÒ ¼ö ÀÖ´Â city±¸ÇÏ±â
-	//city numb°¡ °¡ÀåÅ« city ±¸ÇÏ±â
+	//ê° cityì—ì„œ distanceThresholdë‚´ì— ê°ˆ ìˆ˜ ìˆëŠ” ìµœì†Œë¹„ìš© ê²½ë¡œ êµ¬í•˜ê¸°
+	//ê°€ì¥ ë§ì€ cityë¥¼ ë°©ë¬¸í•  ìˆ˜ ìˆëŠ” cityêµ¬í•˜ê¸°
+	//city numbê°€ ê°€ì¥í° city êµ¬í•˜ê¸°
 
 
 	//create graph
@@ -1417,18 +1417,18 @@ int LeetCode_1334::findTheCity(int n, vector<vector<int>>& edges, int distanceTh
 
 		while (!pqWeightCity.empty())
 		{
-			auto weight = -pqWeightCity.top().first; //°¡Àå °¡±î¿î¼ø¼­·Î ÇÏ±â¶§¹®¿¡,
+			auto weight = -pqWeightCity.top().first; //ê°€ì¥ ê°€ê¹Œìš´ìˆœì„œë¡œ í•˜ê¸°ë•Œë¬¸ì—,
 			auto visitCity = pqWeightCity.top().second;
 
 			pqWeightCity.pop();
 
-			if (weight > distanceThreshold)//threshold ³Ñ´Â°Ç ¹æ¹® ÇÊ¿ä ¾øÀ½.
+			if (weight > distanceThreshold)//threshold ë„˜ëŠ”ê±´ ë°©ë¬¸ í•„ìš” ì—†ìŒ.
 				continue;
 
-			if (weight < mNextCity[visitCity]) //weight°¡ Å¬ °æ¿ì ÇÒ ÇÊ¿ä ¾øÀ½
+			if (weight < mNextCity[visitCity]) //weightê°€ í´ ê²½ìš° í•  í•„ìš” ì—†ìŒ
 				continue;
 
-			//ÇöÀç ¹æ¹®ÇÏ´Â city¿¡ ¿¬°áµÇ¾îÀÖ´Â cityµé
+			//í˜„ì¬ ë°©ë¬¸í•˜ëŠ” cityì— ì—°ê²°ë˜ì–´ìˆëŠ” cityë“¤
 			for (const auto& edgeInfo : graph[visitCity])
 			{
 				auto nextCity = edgeInfo.first;
@@ -1448,10 +1448,10 @@ int LeetCode_1334::findTheCity(int n, vector<vector<int>>& edges, int distanceTh
 		auto tmpNumbCity(0);
 		for (const auto& visitCity : mNextCity)
 		{
-			if (visitCity.first == city) //ÀÚ±âÀÚ½Å Á¦¿Ü
+			if (visitCity.first == city) //ìê¸°ìì‹  ì œì™¸
 				continue;
 
-			//thredhold º¸´Ù Å¬ °æ¿ì Á¦¿Ü
+			//thredhold ë³´ë‹¤ í´ ê²½ìš° ì œì™¸
 			if (visitCity.second  > distanceThreshold)
 				continue;
 			tmpNumbCity++;
@@ -1459,14 +1459,14 @@ int LeetCode_1334::findTheCity(int n, vector<vector<int>>& edges, int distanceTh
 
 		if (tmpNumbCity < numbVisitCity)
 		{
-			resCity = city; //visity city ÀûÀº ¼øÀ¸·Î
+			resCity = city; //visity city ì ì€ ìˆœìœ¼ë¡œ
 			numbVisitCity = tmpNumbCity;
 		}
 		else if (tmpNumbCity == numbVisitCity)
 		{
 			if (resCity < city)
 			{
-				resCity = city; //city numb ³ôÀº °É·Î ¹Ù²Ş
+				resCity = city; //city numb ë†’ì€ ê±¸ë¡œ ë°”ê¿ˆ
 				numbVisitCity = tmpNumbCity;
 			}
 		}
@@ -1548,7 +1548,7 @@ void LeetCode_95::Drive()
 TreeNode* LeetCode_108::sortedArrayToBST(vector<int>& nums)
 {
 	//bst
-	//nums¸¦ Á¤·ÄÇÏ°í ÇÏ¸éµÇÁö ¾Ê³ª?
+	//numsë¥¼ ì •ë ¬í•˜ê³  í•˜ë©´ë˜ì§€ ì•Šë‚˜?
 	// 
 	//root[0] : 0
 	// 
@@ -1783,4 +1783,86 @@ int LeetCode_111::minDepth_best(TreeNode* root)
 
 void LeetCode_111::Drive()
 {
+}
+
+vector<int> LeetCode_1882::assignTasks(vector<int>& servers, vector<int>& tasks)
+{
+	std::vector<int> answer(tasks.size());
+
+	//std::pair<weight, srvIdx>
+	std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> freeSrv;
+
+	//std::pair<end time, srvIdx>
+	std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> busySrv;
+
+	//t + tasks[idxTask] --> endTime
+
+	for (int i = 0; i < servers.size(); ++i)
+		freeSrv.push({servers[i], i});//weight, idx
+
+
+	long time(0);
+	for (int idxTask = 0; idxTask < tasks.size(); ++idxTask)
+	{
+		time = max((long)idxTask, time);
+		
+		//srvê°€ fullë¡œ ì‚¬ìš©ì¤‘ ì¼ë•Œ
+		//í˜„ì¬ ì‹œê°„ì„, ê°€ì¥ ë¨¼ì € ëë‚  task end timeìœ¼ë¡œ ë§ì¶¤
+		//ë¬´ì¡°ê±´ busy srv í•œê°œ ì´ìƒì€ ë¹„ì–´ì§
+		if (freeSrv.empty() && busySrv.top().first > time)
+			time = busySrv.top().first; //end time
+
+
+		//finish processing
+		while (!busySrv.empty() && busySrv.top().first <= time)
+		{
+			auto&[endTime, srvIdx] = busySrv.top();
+			freeSrv.push({servers[srvIdx], srvIdx});
+			busySrv.pop();
+		}
+
+		auto &[weight, srvIdx] = freeSrv.top();
+		busySrv.push({ time + tasks[idxTask], srvIdx }); //{endTiem, srvIdx}
+		answer[idxTask] = srvIdx;
+		freeSrv.pop();
+	}
+
+
+	return vector<int>(answer);
+}
+
+void LeetCode_1882::Drive()
+{
+
+	auto lambda_verify = [&](const std::vector<int>& res, const std::vector<int>& expected)->bool
+	{
+		if (res.size() != expected.size())
+			return false;
+
+		for (int i = 0; i < res.size(); ++i)
+			if (res[i] != expected[i])
+				return false;
+
+		return true;
+	};
+
+	std::vector<int> servers, tasks, expected, result;
+
+	servers = { 3, 3, 2 };
+	tasks = { 1, 2, 3, 2, 1, 2 };
+	expected = { 2, 2, 0, 2, 1, 2 };
+	result = assignTasks(servers, tasks);
+	assert(lambda_verify(result, expected));
+
+	servers = { 5, 1, 4, 3, 2 };
+	tasks = { 2, 1, 2, 4, 5, 2, 1 };
+	expected = { 1, 4, 1, 4, 1, 3, 2 };
+	result = assignTasks(servers, tasks);
+	assert(lambda_verify(result, expected));
+
+	servers = { 1,2,3 };
+	tasks = { 5,4,3,1,2 };
+	expected = { 0,1,2,0,1 };
+	result = assignTasks(servers, tasks);
+	assert(lambda_verify(result, expected));
 }
