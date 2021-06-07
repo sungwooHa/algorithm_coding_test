@@ -1866,3 +1866,220 @@ void LeetCode_1882::Drive()
 	result = assignTasks(servers, tasks);
 	assert(lambda_verify(result, expected));
 }
+
+string LeetCode_1881::maxValue(string n, int x)
+{
+	//input n : digit, very large integer, (-) or (+)
+	//int x : [1,9]
+	//n의 어느 위치든, x를 넣어서 가장 큰 수 만들기
+
+	//if n == {1,2,3,4,5} //size 5
+	//x가 들어갈 수 있는 위치 : 6곳
+
+	auto length = n.size() - 1;
+	auto answerPlace = length + 1;
+
+	//char - '0' -> number
+
+	if (n[0] == '-')
+	{
+		//negative.
+		//뒤에서 부터
+		//x보다 큰 수가 있을 경우, 그자리에 x 넣으면 값이 작아짐.
+		//자릿수가 커질수록 더 작아짐.
+		for (int i = length; i > 0; --i)
+		{
+			auto digit = n[i] - '0';
+			if (digit > x)
+				answerPlace = i;
+		}
+	} 
+	else
+	{
+		//positive
+		//뒤에서부터
+		//x보다 작은 수가 있을 경우 그 자리에 x넣으면 값이 커짐
+		//자릿수가 커질수록 더 커짐
+		for (int i = length; i >= 0; --i)
+		{
+			auto digit = n[i] - '0';
+			if (digit < x)
+				answerPlace = i;
+		}
+	}
+
+	n.insert(n.begin() + answerPlace, x + '0');
+	return n;
+}
+
+void LeetCode_1881::Drive()
+{
+
+	string n;
+	int x;
+
+	n = "99";
+	x = 9;
+	auto val1 = maxValue(n, x);
+	//999
+
+	n = "-13";
+	x = 2;
+	auto val2 = maxValue(n, x);
+	//-123
+
+
+	n = "28824579515";
+	x = 8;
+	auto val3 = maxValue(n, x);
+	//828824579515
+}
+
+vector<int> LeetCode_1878::getBiggestThree(vector<vector<int>>& grid)
+{
+	//마름모 규칙
+	//마름모 중심 (cx,cy)(idx) 이 분명하게 있음
+
+	//width, height
+	//right: cx + size, cy + 0 // cx(idx) - size >= 0
+	//left : cx - size, cy + 0 // cx(idx) + size < width
+	//top : cx + 0, cy + size  // cy(idx) - size >= 0
+ 	//bot : cx + 0, cy - size  // cy(idx) + size < height
+
+	//마름모지만, 정사각형 only. 
+
+	auto lambda_GetMaximum = [&](const int width, const int height, const int& col, const int& row) -> std::vector<int>
+	{
+		int size = 0; //원점에서 끝점까지의 거리
+
+		std::vector<int> svMaximum;
+		while (true)
+		{
+			//verify check
+			////left
+			if (row - size < 0)
+				break;
+
+			//right
+			if (row + size >= width)
+				break;
+
+			//top
+			if (col - size < 0)
+				break;
+
+			//bottom
+			if (col + size >= height)
+				break;
+
+			int sum(0);
+			if (size == 0)
+				sum = grid[col][row];
+			else
+			{
+				
+				auto leftMax = row - size;
+				auto rightMax = row + size;
+				auto topMax = col - size;
+				auto botMax = col + size;
+				
+				int curCol(0);
+				int curRow(0);
+
+				//left to top
+				curCol = col;
+				curRow = leftMax;
+				while(curCol > topMax)
+					sum += grid[curCol--][curRow++];
+
+				//top to right
+				curCol = topMax;
+				curRow = row;
+				while (curCol < col)
+					sum += grid[curCol++][curRow++];
+
+				//right to bottom
+				curCol = col;
+				curRow = rightMax;
+				while (curRow > row)
+					sum += grid[curCol++][curRow--];
+
+
+				//bottom to left
+				curCol = botMax;
+				curRow = row;
+				while (curCol > col)
+					sum += grid[curCol--][curRow--];
+				//마지막꺼는 중복이니 제외
+			}
+
+			svMaximum.push_back(sum);
+			size++;
+		}
+		return svMaximum;
+
+	};
+
+	std::vector<int> answer;
+
+	const int& height = grid.size();
+	const int& width = grid.front().size();
+	for (int col = 0; col < height; col++)
+	{
+		for (int row = 0; row < width; row++)
+		{
+			auto partialRes = lambda_GetMaximum(width, height, col, row);
+			answer.insert(answer.end(), partialRes.begin(), partialRes.end());
+		}
+	}
+	
+	std::sort(answer.begin(), answer.end(), std::greater<int>());
+	answer.erase(std::unique(answer.begin(), answer.end()), answer.end());
+
+	if (answer.size() > 3)
+	{
+		std::vector<int> res(3);
+		for (int i = 0; i < 3; i++)
+			res[i] = answer[i];
+		return res;
+	}
+	else
+		return answer;
+}
+
+void LeetCode_1878::Drive()
+{
+	std::vector<vector<int>> grid;
+	std::vector<int> answer;
+// 	grid = { 
+// 	{ 3 , 4 , 5  , 1 , 3 }, 
+// 	{ 3 , 3 , 4  , 2 , 3 }, 
+// 	{ 20, 30, 200, 40, 10 }, 
+// 	{ 1 , 5 , 5  , 4 , 1 }, 
+// 	{ 4 , 3 , 2  , 2 , 5 } };
+// 
+// 	answer = getBiggestThree(grid);
+// 	//228,216,211
+// 
+// 
+// 	grid = { 
+// 	{ 20, 17, 9 , 13, 5 , 2 , 9 , 1 , 5 }, 
+// 	{ 14, 9 , 9 , 9 , 16, 18, 3 , 4 , 12 }, 
+// 	{ 18, 15, 10, 20, 19, 20, 15, 12, 11 }, 
+// 	{ 19, 16, 19, 18, 8 , 13, 15, 14, 11 }, 
+// 	{ 4 , 19, 5 , 2 , 19, 17, 7 , 2 , 2 } };
+// 
+// 	answer = getBiggestThree(grid);
+// 	//
+
+	grid = {
+	{ 20, 17, 9 , 13, 5 , 2 , 9 , 1 , 5 },
+	{ 14, 9 , 9 , 9 , 16, 18, 3 , 4 , 12 },
+	{ 18, 15, 10, 20, 19, 20, 15, 12, 11 },
+	{ 19, 16, 19, 18, 8 , 13, 15, 14, 11 },
+	{ 4 , 19, 5 , 2 , 19, 17, 7 , 2 , 2 } };
+
+
+	answer = getBiggestThree(grid);
+	//107 103 102
+}

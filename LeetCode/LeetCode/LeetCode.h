@@ -321,3 +321,23 @@ public:
 
 private:
 };
+
+
+class LeetCode_1881 : public ISolution
+{
+public:
+	string maxValue(string n, int x);
+	virtual void Drive() override;
+
+private:
+}; 
+
+
+class LeetCode_1878 : public ISolution
+{
+public:
+	vector<int> getBiggestThree(vector<vector<int>>& grid);
+	virtual void Drive() override;
+
+private:
+};
