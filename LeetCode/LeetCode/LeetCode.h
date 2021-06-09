@@ -341,3 +341,12 @@ public:
 
 private:
 };
+
+class LeetCode_1886 : public ISolution
+{
+public:
+	bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target);
+	virtual void Drive() override;
+
+private:
+};

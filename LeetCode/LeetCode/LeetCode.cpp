@@ -2083,3 +2083,97 @@ void LeetCode_1878::Drive()
 	answer = getBiggestThree(grid);
 	//107 103 102
 }
+
+bool LeetCode_1886::findRotation(vector<vector<int>>& mat, vector<vector<int>>& target)
+{
+	//dest[i][j] = src[size - j - 1][i] //90
+	//src[i][j] == dset1[j][size-i-1] == dest2[size-i-1][size-j-1] == dest3[size-j-1][size-(size-i-1)-1];
+	//src[i][j] == dset1[j][size-i-1] == dest2[size-i-1][size-j-1] == dest3[size-j-1][i];
+	int n = mat.size();
+
+	bool rotate90 = [&]()->bool
+	{
+		for (int i = 0; i < target.size(); ++i)
+		{
+			for (int j = 0; j < target[i].size(); ++j)
+			{
+				if (mat[i][j] != target[j][n-i-1])
+					return false;
+			}
+		}
+		return true;
+	}();
+
+	bool rotate180 = [&]()->bool
+	{
+		for (int i = 0; i < target.size(); ++i)
+		{
+			for (int j = 0; j < target[i].size(); ++j)
+			{
+				if (mat[i][j] != target[n - i - 1][n - j - 1])
+					return false;
+			}
+		}
+		return true;
+	}();
+
+	bool rotate270 = [&]()->bool
+	{
+		for (int i = 0; i < target.size(); ++i)
+		{
+			for (int j = 0; j < target[i].size(); ++j)
+			{
+				if (mat[i][j] != target[n - j - 1][i])
+					return false;
+			}
+		}
+		return true;
+	}();
+
+	bool rotate360 = [&]()->bool
+	{
+		for (int i = 0; i < target.size(); ++i)
+		{
+			for (int j = 0; j < target[i].size(); ++j)
+			{
+				if (mat[i][j] != target[i][j])
+					return false;
+			}
+		}
+		return true;
+	}();
+
+	return rotate90 || rotate180 || rotate270 || rotate360;
+}
+
+void LeetCode_1886::Drive()
+{
+	//00 01 02      
+	//10 11 12
+	//20 21 22
+
+	//size = 3
+	//00 -> 02 -> 22 -> 20
+	//01 -> 12 -> 21 -> 20
+	
+
+
+	//[[0, 0, 0], 
+	// [0, 1, 0], 
+	// [1, 1, 1]]
+	// 
+	//[[1, 1, 1], 
+	// [0, 1, 0], 
+	// [0, 0, 0]]
+
+
+	//[[0, 0, 0], 
+	// [0, 0, 1], 
+	// [0, 0, 1]]
+	// 
+	//[[0, 0, 0], 
+	// [0, 0, 1], 
+	// [0, 0, 1]]
+}
+
+
