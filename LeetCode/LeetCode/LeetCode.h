@@ -350,3 +350,12 @@ public:
 
 private:
 };
+
+class LeetCode_1887 : public ISolution
+{
+public:
+	int reductionOperations(vector<int>& nums);
+	virtual void Drive() override;
+
+private:
+};

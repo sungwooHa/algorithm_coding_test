@@ -2165,7 +2165,7 @@ void LeetCode_1886::Drive()
 	//[[1, 1, 1], 
 	// [0, 1, 0], 
 	// [0, 0, 0]]
-
+	//true
 
 	//[[0, 0, 0], 
 	// [0, 0, 1], 
@@ -2174,6 +2174,103 @@ void LeetCode_1886::Drive()
 	//[[0, 0, 0], 
 	// [0, 0, 1], 
 	// [0, 0, 1]]
+	//true
 }
 
+int LeetCode_1887::reductionOperations(vector<int>& nums)
+{
+	//find largest elements //if there are multiple? pick the smallest i
+	//find next largest elements.smaller than largest, 
+	//reduce largestNums to nextLarget
 
+	std::sort(nums.begin(), nums.end());
+
+	int max = nums.back();
+	int min = nums.front();
+	if (max == min)
+		return 0;
+	
+	std::map<int, int> mapNums;
+	for (const auto& num : nums)
+		mapNums[num] ++;
+
+	int opCnt(0);
+	int i = 0;
+	for (const auto& [val, cnt] : mapNums)
+	{
+		opCnt += cnt*i;
+		i++;
+	}
+
+	return opCnt;
+}
+
+void LeetCode_1887::Drive()
+{
+	std::vector<int> nums;
+
+	nums = { 5, 1, 3 };
+
+
+	assert(reductionOperations(nums) == 3);
+
+
+	nums = { 1,1,2,2,3};
+	assert(reductionOperations(nums) == 4);
+	//
+	//1,1,2,2,3
+	//
+	//1,1,2,3,3
+	//1,1,3,3,3
+	// 
+	//1,1,1,3,3
+	//1,1,1,1,3
+	//1,1,1,1,1
+	//
+	//
+
+
+
+
+	//[7,9,10,8,6,4,1,5,2,3]
+	//1,2,3,4,5,6,7,8,9,10
+	//10 : 1
+	// 9 : 2
+	// 8 : 3
+	// 7 : 4
+	// 6 : 5
+	// 5 : 6
+	// 4 : 7
+	// 3 : 8
+	// 2 : 9
+
+	nums = { 7, 9, 10, 8, 6, 4, 1, 5, 2, 3 };
+	//7, 9, 10, 8, 6, 4, 1, 5, 2, 3 
+	//7, 9, 9, 8, 6, 4, 1, 5, 2, 3 
+	// 
+	//7, 8, 9, 8, 6, 4, 1, 5, 2, 3 
+	//7, 8, 8, 8, 6, 4, 1, 5, 2, 3 
+	// 
+	//7, 7, 8, 8, 6, 4, 1, 5, 2, 3 
+	//7, 7, 7, 8, 6, 4, 1, 5, 2, 3 
+	//7, 7, 7, 7, 6, 4, 1, 5, 2, 3 
+	//
+	//6, 7, 7, 7, 6, 4, 1, 5, 2, 3 
+	//6, 6, 7, 7, 6, 4, 1, 5, 2, 3 
+	//6, 6, 6, 7, 6, 4, 1, 5, 2, 3 
+	//6, 6, 6, 6, 6, 4, 1, 5, 2, 3 
+	// 
+	//5, 6, 6, 6, 6, 4, 1, 5, 2, 3 
+	//5, 5, 6, 6, 6, 4, 1, 5, 2, 3 
+	//5, 5, 5, 6, 6, 4, 1, 5, 2, 3 
+	//5, 5, 5, 5, 6, 4, 1, 5, 2, 3 
+	//5, 5, 5, 5, 5, 4, 1, 5, 2, 3 
+	//
+
+
+	//expect : 45
+
+	assert(reductionOperations(nums) == 45);
+
+	
+}
