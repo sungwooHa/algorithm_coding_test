@@ -387,3 +387,12 @@ public:
 
 private:
 };
+
+class LeetCode_121 : public ISolution
+{
+public:
+	int maxProfit(vector<int>& prices);
+	virtual void Drive() override;
+
+private:
+};

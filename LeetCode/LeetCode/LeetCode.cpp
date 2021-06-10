@@ -2387,3 +2387,31 @@ void LeetCode_119::Drive()
 	// 
 	//
 }
+
+int LeetCode_121::maxProfit(vector<int>& prices)
+{
+	if (prices.size() < 1)
+		return 0;
+
+	int minPrice = INT_MAX;
+	int maxPrice = 0;
+	for (int i = 0; i < prices.size(); ++i)
+	{
+		if (prices[i] < minPrice)
+			minPrice = prices[i];
+		else if(prices[i] - minPrice > maxPrice)
+		{
+			maxPrice = prices[i] - minPrice;
+		}
+	}
+
+	return maxPrice;
+}
+
+void LeetCode_121::Drive()
+{
+	std::vector<int> prices;
+
+	prices = { 7, 1, 5, 3, 6, 4 };
+	assert(maxProfit(prices) == 5);
+}
