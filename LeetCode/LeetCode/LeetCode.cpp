@@ -2356,3 +2356,34 @@ void LeetCode_118::Drive()
 	assert(val.size() == 5);
 
 }
+
+vector<int> LeetCode_119::getRow(int rowIndex)
+{
+	std::vector<int> pre;
+	std::vector<int> answer;
+	for (int i = 0; i < rowIndex+1; ++i)
+	{
+		answer.resize(i + 1, 1);
+		for (int j = 1; j < i; ++j)
+		{
+			answer[j] = pre[j - 1] + pre[j];
+		}
+
+		pre = answer;
+	}
+
+	return answer;
+}
+
+void LeetCode_119::Drive()
+{
+	//1		  1				//
+	//2	     1 1			//
+	//3     1 2 1			//d-1
+	//4	   1 3 3 1			//d-1 d-1 
+	//5	  1 4 6 4 1			//d-1, 2*(d-2), d-1 
+	//6  1 5 10 10 5 1		//d-1  2*(d-2), 2*(d-2) , d-1
+	//7 1 6 15 20 15 6 1    //d-1  2*(d-2)
+	// 
+	//
+}

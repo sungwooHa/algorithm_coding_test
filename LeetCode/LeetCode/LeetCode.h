@@ -378,3 +378,12 @@ public:
 
 private:
 };
+
+class LeetCode_119 : public ISolution
+{
+public:
+	vector<int> getRow(int rowIndex);
+	virtual void Drive() override;
+
+private:
+};
