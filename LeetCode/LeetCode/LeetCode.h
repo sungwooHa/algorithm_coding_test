@@ -369,3 +369,12 @@ public:
 
 private:
 };
+
+class LeetCode_118 : public ISolution
+{
+public:
+	vector<vector<int>> generate(int numRows);
+	virtual void Drive() override;
+
+private:
+};
