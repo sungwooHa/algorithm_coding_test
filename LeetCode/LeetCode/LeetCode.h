@@ -359,3 +359,13 @@ public:
 
 private:
 };
+
+class LeetCode_112 : public ISolution
+{
+public:
+	bool dfs(TreeNode* node, int curSum, const int& targetSum);
+	bool hasPathSum(TreeNode* root, int targetSum);
+	virtual void Drive() override;
+
+private:
+};

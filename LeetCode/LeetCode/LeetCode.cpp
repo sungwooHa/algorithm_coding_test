@@ -1663,7 +1663,6 @@ void LeetCode_110::Drive()
 		lambda_generate(root, 9, 20);
 		lambda_generate(root->right, 15, 7);
 		isBalanced(root);
-
 	}
 
 	// 
@@ -2273,4 +2272,62 @@ void LeetCode_1887::Drive()
 	assert(reductionOperations(nums) == 45);
 
 	
+}
+
+bool LeetCode_112::dfs(TreeNode* node, int curSum, const int& targetSum)
+{
+	if (!node)
+		return false;
+
+	if (!node->left && !node->right)
+	{
+		if (node->val + curSum == targetSum)
+			return true;
+		else
+			return false;
+	}
+
+	bool isFind(false);
+
+	if (node->left)
+		isFind = dfs(node->left, curSum + node->val, targetSum);
+
+	if (node->right && !isFind)
+		isFind = dfs(node->right, curSum + node->val, targetSum);
+
+
+	return isFind;
+}
+
+bool LeetCode_112::hasPathSum(TreeNode* root, int targetSum)
+{
+	return dfs(root, 0, targetSum);
+}
+
+void LeetCode_112::Drive()
+{
+	//			1
+	//		-2,		-3
+	//	  1,  3   -2,	null
+	//-1
+
+	auto lambda_generate = [&](TreeNode* curNode, std::optional<int> left, std::optional<int> right)->void
+	{
+		if (!curNode) return;
+
+		if (left)
+			curNode->left = new TreeNode(left.value());
+		if (right)
+			curNode->right = new TreeNode(right.value());
+	};
+
+	
+		TreeNode* root = new TreeNode(1);
+		lambda_generate(root, -2, -3);
+		lambda_generate(root->left, 1, 3);
+		lambda_generate(root->right, -2, {});
+		lambda_generate(root->left->left, -1, {});
+		auto val = hasPathSum(root, -1);
+	
+
 }
