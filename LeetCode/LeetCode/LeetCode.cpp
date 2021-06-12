@@ -2415,3 +2415,24 @@ void LeetCode_121::Drive()
 	prices = { 7, 1, 5, 3, 6, 4 };
 	assert(maxProfit(prices) == 5);
 }
+
+int LeetCode_122::maxProfit(vector<int>& prices)
+{
+	//greedy?
+	//팔고, 사고
+	//get Sub profit.
+
+	int profit(0);
+	for (int i = 1; i < prices.size(); ++i)
+	{
+		auto val = prices[i] - prices[i - 1];
+		if (val > 0)
+			profit += val;
+	}
+
+	return profit;
+}
+
+void LeetCode_122::Drive()
+{
+}
