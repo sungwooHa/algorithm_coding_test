@@ -405,3 +405,13 @@ public:
 
 private:
 };
+
+
+class LeetCode_1408 : public ISolution
+{
+public:
+	vector<string> stringMatching(vector<string>& words);
+	virtual void Drive() override;
+
+private:
+};

@@ -2436,3 +2436,52 @@ int LeetCode_122::maxProfit(vector<int>& prices)
 void LeetCode_122::Drive()
 {
 }
+
+vector<string> LeetCode_1408::stringMatching(vector<string>& words)
+{
+	std::sort(words.begin(), words.end(), [&](const string& str1, const string& str2) -> bool
+		{
+			return str1.size() < str2.size();
+		});
+
+	std::vector<string> answer;
+	//words를 길이 순으로 정렬
+	for (int i = 0; i < words.size(); ++i)
+	{
+		for (int j = i + 1; j < words.size(); ++j)
+		{
+			if (words[j].find(words[i]) != string::npos)
+			{
+				answer.push_back(words[i]);
+				break;
+			}
+		}
+	}
+
+	return answer;
+	
+	return vector<string>();
+}
+
+void LeetCode_1408::Drive()
+{
+	std::vector<string> words;
+	std::vector<string> answer;
+
+	//as, hero
+	words = { "mass", "as", "hero", "superhero" };
+	answer = stringMatching(words);
+
+
+	//et, code
+	words = { "leetcode", "et", "code" };
+	answer = stringMatching(words);
+
+	//NULL
+	words = { "blue", "green", "bu" };
+	answer = stringMatching(words);
+
+	//"leetcode","od","am"
+	words = { "leetcoder", "leetcode", "od", "hamlet", "am" };
+	answer = stringMatching(words);
+}
