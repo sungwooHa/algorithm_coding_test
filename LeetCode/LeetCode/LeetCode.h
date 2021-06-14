@@ -415,3 +415,13 @@ public:
 
 private:
 };
+
+
+class LeetCode_1888 : public ISolution
+{
+public:
+	int minFlips(string s);
+	virtual void Drive() override;
+
+private:
+};

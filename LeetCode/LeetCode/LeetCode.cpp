@@ -2485,3 +2485,70 @@ void LeetCode_1408::Drive()
 	words = { "leetcoder", "leetcode", "od", "hamlet", "am" };
 	answer = stringMatching(words);
 }
+
+int LeetCode_1888::minFlips(string s)
+{
+	//if? 100
+	//op1 : 100, 001, 010
+	//100 + 100 ---> 100100
+
+	const int ORIGINAL_SIZE = s.size();
+	s += s;
+	const int EXTEND_SIZE = s.size();
+	string ref1; //10101010101...
+	string ref2; //01010101010...
+	ref1.reserve(EXTEND_SIZE);
+	ref2.reserve(EXTEND_SIZE);
+	for (int i = 0; i < EXTEND_SIZE; ++i)
+	{
+		ref1 += (i % 2 == 0 ? "1" : "0");
+		ref2 += (i % 2 == 0 ? "0" : "1");
+	}
+
+	int answer(INT_MAX);
+	int flip1(0);
+	int flip2(0);
+	for (int idx = 0; idx < EXTEND_SIZE; ++idx)
+	{
+		if (s[idx] != ref1[idx])
+			flip1++;
+
+		if (s[idx] != ref2[idx])
+			flip2++;
+
+		if (idx == ORIGINAL_SIZE - 1)
+		{
+			answer = min(flip1, answer);
+			answer = min(flip2, answer);
+		}
+		else if (idx >= ORIGINAL_SIZE)
+		{
+			if (s[idx - ORIGINAL_SIZE] != ref1[idx- ORIGINAL_SIZE])
+				flip1--;
+
+			if (s[idx - ORIGINAL_SIZE] != ref2[idx- ORIGINAL_SIZE])
+				flip2--;
+
+			answer = min(flip1, answer);
+			answer = min(flip2, answer);
+		}
+		else continue;
+	}
+
+	return answer;
+}
+
+void LeetCode_1888::Drive()
+{
+
+	string s;
+
+// 	s = "111000";
+// 	assert(minFlips(s) == 2);	
+// 	
+// 	s = "010";
+// 	assert(minFlips(s) == 0);
+
+	s = "01001001101";
+	assert(minFlips(s) == 2);
+}
