@@ -2568,7 +2568,7 @@ bool LeetCode_125::isPalindrome(string s)
 			end++;
 		else
 		{
-			if (tolower(s[start]) != tolower(s[end]))
+			if (tolower(s[start++]) != tolower(s[end--]))
 				return false;
 		}
 	}
