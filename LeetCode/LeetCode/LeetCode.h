@@ -425,3 +425,12 @@ public:
 
 private:
 };
+
+class LeetCode_125 : public ISolution
+{
+public:
+	bool isPalindrome(string s);
+	virtual void Drive() override;
+
+private:
+};
