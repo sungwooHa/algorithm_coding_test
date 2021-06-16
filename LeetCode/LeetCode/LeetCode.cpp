@@ -2552,3 +2552,40 @@ void LeetCode_1888::Drive()
 	s = "01001001101";
 	assert(minFlips(s) == 2);
 }
+
+bool LeetCode_125::isPalindrome(string s)
+{
+	//isanum : 숫자,영문 판단
+	//tolower : 소문자로 전환.
+
+	int start = 0, end = s.length() - 1;
+
+	while (start < end)
+	{
+		if (!std::isalnum(s[start]))
+			start++;
+		else if (!std::isalnum(s[end]))
+			end--;
+		else
+		{
+			if (tolower(s[start++]) != tolower(s[end--]))
+				return false;
+		}
+	}
+	return true;
+
+}
+
+void LeetCode_125::Drive()
+{
+	string s;
+	
+	s = "A man, a plan, a canal: Panama";
+	assert(isPalindrome(s) == true);
+
+	s = "race a car";
+	assert(isPalindrome(s) == false);
+
+	s = "0P";
+	assert(isPalindrome(s) == false);
+}
