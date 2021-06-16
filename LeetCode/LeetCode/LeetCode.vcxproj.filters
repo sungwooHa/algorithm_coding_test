@@ -16,6 +16,12 @@
     <Filter Include="LeetCode">
       <UniqueIdentifier>{f9f8c8f8-13ee-4c93-b0eb-3278049f79bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LeetCode\Medium">
+      <UniqueIdentifier>{a8d15bea-e659-44e5-beb2-95a799ae4d8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LeetCode\Easy">
+      <UniqueIdentifier>{3fa40730-69f0-4068-95f2-25ef749222ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">
@@ -31,6 +37,15 @@
     </ClCompile>
     <ClCompile Include="LeetCode.cpp">
       <Filter>LeetCode</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_1.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_2.cpp">
+      <Filter>LeetCode\Medium</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_3.cpp">
+      <Filter>LeetCode\Medium</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

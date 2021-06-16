@@ -1,17 +1,7 @@
 ﻿#pragma once
-#include <vector>
-#include <string>
+
 #include "ISoultion.h"
 
-using namespace std;
-
-class LeetCode_1 : public ISolution {
-public:
-	vector<int> twoSum(vector<int>& nums, int target);
-
-	// ISolution을(를) 통해 상속됨
-	virtual void Drive() override;
-};
 
 class LeetCode_9 : public ISolution
 {
@@ -439,6 +429,7 @@ class Leetcode_136 : public ISolution
 {
 public:
 	int singleNumber(vector<int>& nums);
+	int singleNumber_good(vector<int>& nums);
 	virtual void Drive() override;
 
 };

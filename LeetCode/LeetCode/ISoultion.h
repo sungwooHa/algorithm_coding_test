@@ -1,6 +1,20 @@
 #pragma once
 
 #include <assert.h>
+#include <vector>
+#include <string>
+#include <stack>
+#include <iostream>
+#include <deque>
+#include <set>
+#include <algorithm>
+#include <unordered_map>
+#include <map>
+#include <unordered_set>
+#include <queue>
+#include <optional>
+
+using namespace std;
 
 class ISolution
 {

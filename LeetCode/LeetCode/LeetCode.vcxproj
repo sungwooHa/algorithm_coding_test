@@ -24,7 +24,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LeetCode.cpp" />
+    <ClCompile Include="leetcode_2.cpp" />
+    <ClCompile Include="leetcode_3.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="leetcode_1.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
