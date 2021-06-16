@@ -434,3 +434,11 @@ public:
 
 private:
 };
+
+class Leetcode_136 : public ISolution
+{
+public:
+	int singleNumber(vector<int>& nums);
+	virtual void Drive() override;
+
+};

@@ -2589,3 +2589,34 @@ void LeetCode_125::Drive()
 	s = "0P";
 	assert(isPalindrome(s) == false);
 }
+
+int Leetcode_136::singleNumber(vector<int>& nums)
+{
+	std::unordered_map<int, int> hashMap;
+
+	for (const auto& num : nums)
+		hashMap[num]++;
+
+	for (const auto& [key, val] : hashMap)
+	{
+		if (val == 1)
+			return key;
+	}
+
+	assert(false);
+	return 0;
+}
+
+int Leetcode_136::singleNumber_good(vector<int>& nums)
+{
+	int answer(0);
+	for (const auto& num : nums)
+	{
+		answer ^= num;
+	}
+	return answer;
+}
+
+void Leetcode_136::Drive()
+{
+}
