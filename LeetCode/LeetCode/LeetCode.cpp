@@ -2565,10 +2565,10 @@ bool LeetCode_125::isPalindrome(string s)
 		if (!std::isalnum(s[start]))
 			start++;
 		else if (!std::isalnum(s[end]))
-			end--;
+			end++;
 		else
 		{
-			if (tolower(s[start++]) != tolower(s[end--]))
+			if (tolower(s[start]) != tolower(s[end]))
 				return false;
 		}
 	}
