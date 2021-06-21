@@ -1,10 +1,10 @@
 
-#include "leetcode_1.cpp"
+#include "leetcode_1899.cpp"
 using namespace std;
 
 int main()
 {
-	LeetCode_1 leetcode;
+	Leetcode_1899 leetcode;
 	leetcode.Drive();
 	return 0 ;
 }

@@ -2523,9 +2523,9 @@ bool LeetCode_125::isPalindrome(string s)
 
 	while (start < end)
 	{
-		if (!std::isalnum(s[start]))
+		if (!isalnum(s[start]))
 			start++;
-		else if (!std::isalnum(s[end]))
+		else if (!isalnum(s[end]))
 			end++;
 		else
 		{
