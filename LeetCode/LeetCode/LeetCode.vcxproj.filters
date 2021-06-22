@@ -1,60 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="LeetCode">
-      <UniqueIdentifier>{f9f8c8f8-13ee-4c93-b0eb-3278049f79bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="LeetCode\Medium">
-      <UniqueIdentifier>{a8d15bea-e659-44e5-beb2-95a799ae4d8c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="LeetCode\Easy">
-      <UniqueIdentifier>{3fa40730-69f0-4068-95f2-25ef749222ab}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="LeetCode.cpp" />
+    <ClCompile Include="leetcode_1413.cpp" />
+    <ClCompile Include="leetcode_1899.cpp" />
+    <ClCompile Include="leetcode_141.cpp" />
+    <ClCompile Include="leetcode_2.cpp" />
+    <ClCompile Include="leetcode_3.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="leetcode_1.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ISoultion.h">
-      <Filter>LeetCode</Filter>
-    </ClInclude>
-    <ClInclude Include="LeetCode.h">
-      <Filter>LeetCode</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="LeetCode.cpp">
-      <Filter>LeetCode</Filter>
-    </ClCompile>
-    <ClCompile Include="leetcode_1.cpp">
-      <Filter>LeetCode\Easy</Filter>
-    </ClCompile>
-    <ClCompile Include="leetcode_2.cpp">
-      <Filter>LeetCode\Medium</Filter>
-    </ClCompile>
-    <ClCompile Include="leetcode_3.cpp">
-      <Filter>LeetCode\Medium</Filter>
-    </ClCompile>
-    <ClCompile Include="leetcode_1899.cpp">
-      <Filter>LeetCode\Medium</Filter>
-    </ClCompile>
-    <ClCompile Include="leetcode_1413.cpp">
-      <Filter>LeetCode\Easy</Filter>
-    </ClCompile>
-    <ClCompile Include="leetcode_141.cpp">
-      <Filter>LeetCode\Easy</Filter>
-    </ClCompile>
+    <ClInclude Include="ISoultion.h" />
+    <ClInclude Include="LeetCode.h" />
   </ItemGroup>
 </Project>
