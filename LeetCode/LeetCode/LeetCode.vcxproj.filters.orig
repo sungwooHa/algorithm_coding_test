@@ -47,13 +47,14 @@
     <ClCompile Include="leetcode_3.cpp">
       <Filter>LeetCode\Medium</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="leetcode_141.cpp">
+=======
     <ClCompile Include="leetcode_1899.cpp">
       <Filter>LeetCode\Medium</Filter>
     </ClCompile>
     <ClCompile Include="leetcode_1413.cpp">
-      <Filter>LeetCode\Easy</Filter>
-    </ClCompile>
-    <ClCompile Include="leetcode_141.cpp">
+>>>>>>> 491c4c35ae90833ae5c511d023be2fd3b3a8e055
       <Filter>LeetCode\Easy</Filter>
     </ClCompile>
   </ItemGroup>

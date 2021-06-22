@@ -24,9 +24,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LeetCode.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="leetcode_141.cpp" />
+=======
     <ClCompile Include="leetcode_1413.cpp" />
     <ClCompile Include="leetcode_1899.cpp" />
-    <ClCompile Include="leetcode_141.cpp" />
+>>>>>>> 491c4c35ae90833ae5c511d023be2fd3b3a8e055
     <ClCompile Include="leetcode_2.cpp" />
     <ClCompile Include="leetcode_3.cpp" />
     <ClCompile Include="main.cpp" />

@@ -14,3 +14,6 @@
 |1|[TwoSum](https://leetcode.com/problems/two-sum/)|easy|[leetcode_1.cpp](LeetCode/LeetCode/LeetCode/leetcode_1.cpp)|-|
 |2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers)|medium|[leetcode_2.cpp](LeetCode/LeetCode/LeetCode/leetcode_2.cpp)|-|
 |3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|medium|[leetcode_3.cpp](LeetCode/LeetCode/LeetCode/leetcode_3.cpp)|-|
+|1413|[Minimum Value to Get Positive Step by Step Sum](https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/)|easy|[leetcode_1413.cpp](LeetCode/LeetCode/LeetCode/leetcode_1413.cpp)|-|
+|1899|[Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/)|medium|[leetcode_1899.cpp](LeetCode/LeetCode/LeetCode/leetcode_1899.cpp)|-|
+
