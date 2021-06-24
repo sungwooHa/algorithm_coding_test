@@ -2,16 +2,39 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="LeetCode.cpp" />
-    <ClCompile Include="leetcode_1413.cpp" />
-    <ClCompile Include="leetcode_1899.cpp" />
-    <ClCompile Include="leetcode_141.cpp" />
-    <ClCompile Include="leetcode_2.cpp" />
-    <ClCompile Include="leetcode_3.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="leetcode_1.cpp" />
+    <ClCompile Include="leetcode_1.cpp">
+      <Filter>easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_2.cpp">
+      <Filter>medium</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_3.cpp">
+      <Filter>medium</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_141.cpp">
+      <Filter>easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_1413.cpp">
+      <Filter>easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_1899.cpp">
+      <Filter>medium</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h" />
     <ClInclude Include="LeetCode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="easy">
+      <UniqueIdentifier>{5dc647d2-efad-4bfa-aff0-b1124692f2db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="medium">
+      <UniqueIdentifier>{05575475-d2df-4890-be98-293d1658b75a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hard">
+      <UniqueIdentifier>{72e30bf4-bf38-4de0-ae4d-867abbcf04e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
