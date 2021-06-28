@@ -30,6 +30,9 @@
     <ClCompile Include="leetcode_3.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="leetcode_1.cpp" />
+    <ClCompile Include="programmers_01.cpp" />
+    <ClCompile Include="programmers_02.cpp" />
+    <ClCompile Include="programmers_03.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

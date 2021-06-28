@@ -22,6 +22,9 @@
     <Filter Include="LeetCode\Easy">
       <UniqueIdentifier>{3fa40730-69f0-4068-95f2-25ef749222ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LeetCode\programmers">
+      <UniqueIdentifier>{bd17f7d4-44d3-4878-9d03-46149b5bffea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">
@@ -52,6 +55,15 @@
     </ClCompile>
     <ClCompile Include="leetcode_1413.cpp">
       <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="programmers_01.cpp">
+      <Filter>LeetCode\programmers</Filter>
+    </ClCompile>
+    <ClCompile Include="programmers_02.cpp">
+      <Filter>LeetCode\programmers</Filter>
+    </ClCompile>
+    <ClCompile Include="programmers_03.cpp">
+      <Filter>LeetCode\programmers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

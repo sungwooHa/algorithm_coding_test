@@ -47,6 +47,26 @@ public :
 		return true;
 	}
 
+	bool mergeTriplets_recommand(vector<vector<int>>& triplets, vector<int>& target)
+	{
+		std::vector<int> result(3, 0);
+
+		for (const auto& triplet : triplets)
+		{
+			if ((triplet[0] > target[0])
+				|| (triplet[1] > target[1])
+				|| (triplet[2] > target[2]))
+				continue;
+
+				
+			for (int i = 0; i < 3; ++i)
+				result[i] = std::max(result[i], triplet[i]);
+		}
+
+		return target == result;
+	}
+
+
 	virtual void Drive() override
 	{
 		vector<vector<int>> triplets;
