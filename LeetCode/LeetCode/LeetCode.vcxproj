@@ -23,6 +23,7 @@
     <ClInclude Include="LeetCode.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="leetcode_1904.cpp" />
     <ClCompile Include="LeetCode.cpp" />
     <ClCompile Include="leetcode_13.cpp" />
     <ClCompile Include="leetcode_1413.cpp" />
@@ -31,6 +32,7 @@
     <ClCompile Include="leetcode_155.cpp" />
     <ClCompile Include="leetcode_160.cpp" />
     <ClCompile Include="leetcode_167.cpp" />
+    <ClCompile Include="leetcode_168.cpp" />
     <ClCompile Include="leetcode_1899.cpp" />
     <ClCompile Include="leetcode_141.cpp" />
     <ClCompile Include="leetcode_2.cpp" />
