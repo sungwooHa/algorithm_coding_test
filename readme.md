@@ -22,6 +22,7 @@
 |145|[Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)|easy|[leetcode_145.cpp](LeetCode/LeetCode/LeetCode/leetcode_145.cpp)|-|
 |155|[Min Stack](https://leetcode.com/problems/min-stack/)|easy|[leetcode_155.cpp](LeetCode/LeetCode/LeetCode/leetcode_155.cpp)|-|
 |160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|easy|[leetcode_160.cpp](LeetCode/LeetCode/LeetCode/leetcode_160.cpp)|-|
+|168|[Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/)|easy|[leetcode_168.cpp](LeetCode/LeetCode/LeetCode/leetcode_168.cpp)|-|
 |1413|[Minimum Value to Get Positive Step by Step Sum](https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/)|easy|[leetcode_1413.cpp](LeetCode/LeetCode/LeetCode/leetcode_1413.cpp)|-|
 |1899|[Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/)|medium|[leetcode_1899.cpp](LeetCode/LeetCode/LeetCode/leetcode_1899.cpp)|-|
-
+|1904|[The Number of Full Rounds You Have Played](https://leetcode.com/problems/the-number-of-full-rounds-you-have-played/)|medium|[leetcode_1904.cpp](LeetCode/LeetCode/LeetCode/leetcode_1904.cpp)|-|
