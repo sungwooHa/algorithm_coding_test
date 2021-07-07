@@ -26,7 +26,7 @@ public:
 			{
 				return { left + 1, right + 1 };
 			}
-			else if (numbers[left] + numbers[right] < target)
+			else if (numbers[left] + numbers[right] > target)
 			{
 				right--;
 			}
