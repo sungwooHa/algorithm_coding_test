@@ -59,6 +59,9 @@
     <ClCompile Include="leetcode_1904.cpp">
       <Filter>LeetCode\Medium</Filter>
     </ClCompile>
+    <ClCompile Include="leetcode_169.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">
