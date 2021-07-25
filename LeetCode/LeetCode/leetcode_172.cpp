@@ -4,9 +4,10 @@
 /// <summary>
 /// https://leetcode.com/problems/factorial-trailing-zeroes/
 /// </summary>
-/// <param name="columnTitle">string <int> </param>
+/// <param name="n">string <int> </param>
 /// 
-/// excel column(26) to integer(digit)
+/// Given an integer n, return the number of trailing zeroes in n!.
+/// zero -->  2*5;
 /// 
 /// 
 
