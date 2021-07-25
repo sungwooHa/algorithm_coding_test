@@ -74,8 +74,8 @@
     <ClCompile Include="leetcode_421.cpp">
       <Filter>LeetCode\Medium</Filter>
     </ClCompile>
-    <ClCompile Include="leetcode_701.cpp">
-      <Filter>LeetCode\Medium</Filter>
+    <ClCompile Include="leetcode_191.cpp">
+      <Filter>LeetCode\Easy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
