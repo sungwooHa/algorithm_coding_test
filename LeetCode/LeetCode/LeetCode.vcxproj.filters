@@ -59,6 +59,24 @@
     <ClCompile Include="leetcode_1904.cpp">
       <Filter>LeetCode\Medium</Filter>
     </ClCompile>
+    <ClCompile Include="leetcode_169.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_171.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_172.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_190.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_421.cpp">
+      <Filter>LeetCode\Medium</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_191.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">
