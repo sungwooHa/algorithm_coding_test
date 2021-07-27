@@ -6,9 +6,6 @@
 /// </summary>
 class LeetCode_38 : public ISolution
 {
-private:
-
-
 public:
 	string Method1(string strNumb)
 	{

@@ -83,7 +83,24 @@
     <ClCompile Include="leetcode_20.cpp">
       <Filter>LeetCode\Easy</Filter>
     </ClCompile>
-    <ClCompile Include="leetcode_21.cpp" />
+    <ClCompile Include="leetcode_21.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_38.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_49.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_88.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_704.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_1089.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">
