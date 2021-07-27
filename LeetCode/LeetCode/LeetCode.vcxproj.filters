@@ -77,6 +77,13 @@
     <ClCompile Include="leetcode_191.cpp">
       <Filter>LeetCode\Easy</Filter>
     </ClCompile>
+    <ClCompile Include="leetcode_14.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_20.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_21.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">

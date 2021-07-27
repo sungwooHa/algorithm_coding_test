@@ -2,54 +2,6 @@
 
 #include "ISoultion.h"
 
-
-class LeetCode_9 : public ISolution
-{
-public:
-	bool isPalindrome(int x);
-	bool isPalindrome_recommand(int x);
-	virtual void Drive() override;
-
-};
-
-class LeetCode_13 : public ISolution
-{
-public:
-	int romanToInt(string s);
-	int romanToInt_recommand(string s);
-	virtual void Drive() override;
-
-};
-
-
-class LeetCode_14 : public ISolution
-{
-public:
-	string longestCommonPrefix(vector<string>& strs);
-	virtual void Drive() override;
-
-};
-
-class LeetCode_20 : public ISolution
-{
-public:
-	bool isValid(string s);
-	virtual void Drive() override;
-};
-
-
-class LeetCode_21 : public ISolution
-{
-private:
-
-
-public:
-	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
-	virtual void Drive() override;
-
-	
-};
-
 class LeetCode_26 : public ISolution
 {
 public:
@@ -95,37 +47,6 @@ public:
 	virtual void Drive() override;
 };
 
-class LeetCode_105 : public ISolution
-{
-public:
-	TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
-	virtual void Drive() override;
-
-private:
-};
-
-class LeetCode_1375 : public ISolution
-{
-public:
-	int numTimesAllBlue(vector<int>& light);
-	virtual void Drive() override;
-
-private:
-};
-
-class LeetCode_822 : public ISolution
-{
-public:
-	int flipgame(vector<int>& fronts, vector<int>& backs);
-	virtual void Drive() override;
-};
-
-class LeetCode_693 : public ISolution
-{
-public:
-	bool hasAlternatingBits(int n);
-	virtual void Drive() override;
-};
 
 class LeetCode_66 : public ISolution
 {
@@ -139,25 +60,6 @@ class LeetCode_67 : public ISolution
 {
 public:
 	string addBinary(string a, string b);
-	virtual void Drive() override;
-
-private:
-};
-
-class LeetCode_1073 : public ISolution
-{
-public:
-	vector<int> addNegabinary(vector<int>& arr1, vector<int>& arr2);
-	virtual void Drive() override;
-
-private:
-};
-
-class LeetCode_150 : public ISolution
-{
-public:
-	int evalRPN(vector<string>& tokens);
-	int evalRPN_other(vector<string>& tokens);
 	virtual void Drive() override;
 
 private:
@@ -200,6 +102,17 @@ public:
 private:
 };
 
+class LeetCode_95 : public ISolution
+{
+public:
+
+	vector<TreeNode*> GeneratePartialTree(int start, int end);
+	vector<TreeNode*> generateTrees(int n);
+	virtual void Drive() override;
+
+private:
+};
+
 class LeetCode_100 : public ISolution
 {
 public:
@@ -208,6 +121,9 @@ public:
 
 private:
 };
+
+///////////////////////////////////////
+
 
 class LeetCode_101 : public ISolution
 {
@@ -231,26 +147,15 @@ public:
 private:
 };
 
-
-class LeetCode_1334 : public ISolution
+class LeetCode_105 : public ISolution
 {
 public:
-	int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold);
+	TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
 	virtual void Drive() override;
 
 private:
 };
 
-class LeetCode_95 : public ISolution
-{
-public:
-
-	vector<TreeNode*> GeneratePartialTree(int start, int end);
-	vector<TreeNode*> generateTrees(int n);
-	virtual void Drive() override;
-
-private:
-};
 
 class LeetCode_108 : public ISolution
 {
@@ -271,25 +176,6 @@ public:
 private:
 };
 
-class LeetCode_530 : public ISolution
-{
-public:
-	void inOrder(TreeNode* node, std::vector<int>& treeValue);
-	int getMinimumDifference(TreeNode* root);
-	virtual void Drive() override;
-
-private:
-};
-
-
-class LeetCode_1394 : public ISolution
-{
-public:
-	int findLucky(vector<int>& arr);
-	virtual void Drive() override;
-
-private:
-};
 
 class LeetCode_111 : public ISolution
 {
@@ -303,52 +189,6 @@ public:
 private:
 };
 
-class LeetCode_1882 : public ISolution
-{
-public:
-	vector<int> assignTasks(vector<int>& servers, vector<int>& tasks);
-	virtual void Drive() override;
-
-private:
-};
-
-
-class LeetCode_1881 : public ISolution
-{
-public:
-	string maxValue(string n, int x);
-	virtual void Drive() override;
-
-private:
-}; 
-
-
-class LeetCode_1878 : public ISolution
-{
-public:
-	vector<int> getBiggestThree(vector<vector<int>>& grid);
-	virtual void Drive() override;
-
-private:
-};
-
-class LeetCode_1886 : public ISolution
-{
-public:
-	bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target);
-	virtual void Drive() override;
-
-private:
-};
-
-class LeetCode_1887 : public ISolution
-{
-public:
-	int reductionOperations(vector<int>& nums);
-	virtual void Drive() override;
-
-private:
-};
 
 class LeetCode_112 : public ISolution
 {
@@ -396,26 +236,6 @@ public:
 private:
 };
 
-
-class LeetCode_1408 : public ISolution
-{
-public:
-	vector<string> stringMatching(vector<string>& words);
-	virtual void Drive() override;
-
-private:
-};
-
-
-class LeetCode_1888 : public ISolution
-{
-public:
-	int minFlips(string s);
-	virtual void Drive() override;
-
-private:
-};
-
 class LeetCode_125 : public ISolution
 {
 public:
@@ -432,4 +252,144 @@ public:
 	int singleNumber_good(vector<int>& nums);
 	virtual void Drive() override;
 
+};
+class LeetCode_150 : public ISolution
+{
+public:
+	int evalRPN(vector<string>& tokens);
+	int evalRPN_other(vector<string>& tokens);
+	virtual void Drive() override;
+
+private:
+};
+
+
+class LeetCode_530 : public ISolution
+{
+public:
+	void inOrder(TreeNode* node, std::vector<int>& treeValue);
+	int getMinimumDifference(TreeNode* root);
+	virtual void Drive() override;
+
+private:
+};
+
+
+class LeetCode_693 : public ISolution
+{
+public:
+	bool hasAlternatingBits(int n);
+	virtual void Drive() override;
+};
+
+
+class LeetCode_822 : public ISolution
+{
+public:
+	int flipgame(vector<int>& fronts, vector<int>& backs);
+	virtual void Drive() override;
+};
+
+class LeetCode_1073 : public ISolution
+{
+public:
+	vector<int> addNegabinary(vector<int>& arr1, vector<int>& arr2);
+	virtual void Drive() override;
+
+private:
+};
+
+class LeetCode_1334 : public ISolution
+{
+public:
+	int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold);
+	virtual void Drive() override;
+
+private:
+};
+
+class LeetCode_1375 : public ISolution
+{
+public:
+	int numTimesAllBlue(vector<int>& light);
+	virtual void Drive() override;
+
+private:
+};
+
+
+class LeetCode_1394 : public ISolution
+{
+public:
+	int findLucky(vector<int>& arr);
+	virtual void Drive() override;
+
+private:
+};
+
+
+class LeetCode_1408 : public ISolution
+{
+public:
+	vector<string> stringMatching(vector<string>& words);
+	virtual void Drive() override;
+
+private:
+};
+
+
+class LeetCode_1882 : public ISolution
+{
+public:
+	vector<int> assignTasks(vector<int>& servers, vector<int>& tasks);
+	virtual void Drive() override;
+
+private:
+};
+
+
+class LeetCode_1881 : public ISolution
+{
+public:
+	string maxValue(string n, int x);
+	virtual void Drive() override;
+
+private:
+};
+
+
+class LeetCode_1878 : public ISolution
+{
+public:
+	vector<int> getBiggestThree(vector<vector<int>>& grid);
+	virtual void Drive() override;
+
+private:
+};
+
+class LeetCode_1886 : public ISolution
+{
+public:
+	bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target);
+	virtual void Drive() override;
+
+private:
+};
+
+class LeetCode_1887 : public ISolution
+{
+public:
+	int reductionOperations(vector<int>& nums);
+	virtual void Drive() override;
+
+private:
+};
+
+class LeetCode_1888 : public ISolution
+{
+public:
+	int minFlips(string s);
+	virtual void Drive() override;
+
+private:
 };
