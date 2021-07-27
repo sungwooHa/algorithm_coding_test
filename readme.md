@@ -11,7 +11,7 @@
 
 |#|Title|Difficulty|code|Blog|
 | :---: | :---: | :---: | :---: | :---: |
-|1|[TwoSum](https://leetcode.com/problems/two-sum/)|easy|[leetcode_1.cpp](LeetCode/LeetCode/LeetCode/leetcode_1.cpp)|-|
+|1|[TwoSum](https://leetcode.com/problems/two-sum/)|easy|[leetcode_1.cpp](LeetCode/LeetCode/LeetCode/LeetCode/leetcode_1.cpp)|-|
 |2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers)|medium|[leetcode_2.cpp](LeetCode/LeetCode/LeetCode/leetcode_2.cpp)|-|
 |3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|medium|[leetcode_3.cpp](LeetCode/LeetCode/LeetCode/leetcode_3.cpp)|-|
 |9|[Palindrome Number](https://leetcode.com/problems/palindrome-number/)|easy|[leetcode_9.cpp](LeetCode/LeetCode/LeetCode/leetcode_9.cpp)|-|
