@@ -113,6 +113,9 @@
     <ClCompile Include="leetcode_8.cpp">
       <Filter>LeetCode\Medium</Filter>
     </ClCompile>
+    <ClCompile Include="leetcode_11.cpp">
+      <Filter>LeetCode\Medium</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">
@@ -147,5 +150,8 @@
     <Filter Include="programmers">
       <UniqueIdentifier>{bd17f7d4-44d3-4878-9d03-46149b5bffea}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\readme.md" />
   </ItemGroup>
 </Project>
