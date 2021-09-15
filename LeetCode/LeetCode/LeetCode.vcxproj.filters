@@ -137,6 +137,9 @@
     <ClCompile Include="programmers_graph.cpp">
       <Filter>programmers\Graph</Filter>
     </ClCompile>
+    <ClCompile Include="leetcode_39.cpp">
+      <Filter>LeetCode\Medium</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">

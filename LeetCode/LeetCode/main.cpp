@@ -1,10 +1,10 @@
 
-#include "primeNumber_lv2.cpp"
+#include "leetcode_39.cpp"
 using namespace std;
 
 int main()
 {
-	primeNumber_lv2 leetcode;
+	LeetCode_39 leetcode;
 	leetcode.Drive();
 	return 0 ;
 }
