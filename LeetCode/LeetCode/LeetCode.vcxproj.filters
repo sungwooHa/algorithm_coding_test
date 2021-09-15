@@ -116,6 +116,27 @@
     <ClCompile Include="leetcode_11.cpp">
       <Filter>LeetCode\Medium</Filter>
     </ClCompile>
+    <ClCompile Include="leetcode_15.cpp">
+      <Filter>LeetCode\Medium</Filter>
+    </ClCompile>
+    <ClCompile Include="q1.cpp">
+      <Filter>2021_08</Filter>
+    </ClCompile>
+    <ClCompile Include="q2.cpp">
+      <Filter>2021_08</Filter>
+    </ClCompile>
+    <ClCompile Include="q3.cpp">
+      <Filter>2021_08</Filter>
+    </ClCompile>
+    <ClCompile Include="stack_truck_lv2.cpp">
+      <Filter>programmers\stack</Filter>
+    </ClCompile>
+    <ClCompile Include="primeNumber_lv2.cpp">
+      <Filter>programmers\Exhaustive Search</Filter>
+    </ClCompile>
+    <ClCompile Include="programmers_graph.cpp">
+      <Filter>programmers\Graph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">
@@ -149,6 +170,21 @@
   <ItemGroup>
     <Filter Include="programmers">
       <UniqueIdentifier>{bd17f7d4-44d3-4878-9d03-46149b5bffea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2021_08">
+      <UniqueIdentifier>{f77393f0-4e77-447b-b8d6-fdd253395639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="programmers\hash">
+      <UniqueIdentifier>{5dbcff99-59c4-4bbc-b9f7-32ea91e55a52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="programmers\stack">
+      <UniqueIdentifier>{990e9f48-30d2-4f00-9c4f-7b35d64758fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="programmers\Exhaustive Search">
+      <UniqueIdentifier>{14b5f855-7a1c-4caa-8b53-3ed285dd3b33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="programmers\Graph">
+      <UniqueIdentifier>{d8c32c7a-e392-4397-8b83-7d29e6032c65}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
