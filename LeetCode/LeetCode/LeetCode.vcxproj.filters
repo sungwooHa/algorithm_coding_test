@@ -147,7 +147,7 @@
       <Filter>LeetCode\Medium</Filter>
     </ClCompile>
     <ClCompile Include="leetcode_205.cpp">
-      <Filter>LeetCode\Medium</Filter>
+      <Filter>LeetCode\Easy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +156,9 @@
     </ClInclude>
     <ClInclude Include="LeetCode.h">
       <Filter>LeetCode</Filter>
+    </ClInclude>
+    <ClInclude Include="leetcode_290.cpp">
+      <Filter>LeetCode\Easy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

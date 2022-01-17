@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="ISoultion.h" />
     <ClInclude Include="LeetCode.h" />
+    <ClInclude Include="leetcode_290.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leetcode_1089.cpp">
