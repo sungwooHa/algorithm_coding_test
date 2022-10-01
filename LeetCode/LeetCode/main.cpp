@@ -1,11 +1,12 @@
 
-#include "leetcode_290.cpp"
+//#include "leetcode_290.cpp"
 using namespace std;
+#include <iostream>
+#include "leetcode_12.cpp"
 
 int main()
 {
-	LeetCode_290 leetcode;
-	leetcode.Drive();
-	return 0 ;
+	LeetCode_12 solve;
+	solve.Drive();
+	return 0;
 }
-

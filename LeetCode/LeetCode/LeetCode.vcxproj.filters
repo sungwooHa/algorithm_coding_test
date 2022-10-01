@@ -149,6 +149,9 @@
     <ClCompile Include="leetcode_205.cpp">
       <Filter>LeetCode\Easy</Filter>
     </ClCompile>
+    <ClCompile Include="leetcode_12.cpp">
+      <Filter>LeetCode\Medium</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">
@@ -200,6 +203,9 @@
     </Filter>
     <Filter Include="programmers\Graph">
       <UniqueIdentifier>{d8c32c7a-e392-4397-8b83-7d29e6032c65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test">
+      <UniqueIdentifier>{8605c992-b190-47f5-ba3d-4f89e4b60521}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
