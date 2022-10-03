@@ -60,6 +60,10 @@ public:
 	{
 		if (!node) return;
 
+		//순차적으로 호출된다는 선에서.
+		//마지막꺼부터 -- 를 함.
+		//n 이 0이 되는 순간 target 지점.
+		//만약 n이 0이 아닌데 nullptr나오면 그냥 하면됨.
 		removeNode(node, n);
 
 		if (n == 0)
