@@ -73,6 +73,7 @@ public:
 		auto pNext = head->next;
 		head->next = swapPairs_2(pNext->next);
 		pNext->next = head;
+		return pNext;
 	}
 
 	// ISolution을(를) 통해 상속됨
