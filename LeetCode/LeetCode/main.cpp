@@ -1,11 +1,11 @@
 
 using namespace std;
 #include <iostream>
-#include "LeetCode_31.cpp"
+#include "LeetCode_206.cpp"
 
 int main()
 {
-	LeetCode_31 solve;
+	LeetCode_206 solve;
 	solve.Drive();
 	return 0;
 }

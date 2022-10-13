@@ -29,6 +29,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="leetcode_206.cpp" />
     <ClCompile Include="leetcode_31.cpp" />
     <ClCompile Include="leetcode_1089.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
