@@ -18,7 +18,7 @@ public:
 
         void push(int x) {
             q.push(x);
-            for (int idx = 0; idx < q.size(); ++idx)
+            for (int idx = 1; idx < q.size(); ++idx)
             {
                 //순서 뒤집기
                 q.push(q.front());
