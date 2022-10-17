@@ -4,8 +4,6 @@
 /// https://leetcode.com/problems/power-of-two/
 /// </summary>
 /// <returns></returns>
-/// range a~b
-/// 가장 적은 sorting으로 array의 모든 숫자를 cover하라.
 /// 
 class LeetCode_231 : public ISolution {
 public:
