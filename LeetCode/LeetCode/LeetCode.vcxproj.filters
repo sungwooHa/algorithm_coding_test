@@ -173,6 +173,12 @@
     <ClCompile Include="leetcode_206.cpp">
       <Filter>LeetCode\Easy</Filter>
     </ClCompile>
+    <ClCompile Include="leetcode_217.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_219.cpp">
+      <Filter>LeetCode\Easy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISoultion.h">
