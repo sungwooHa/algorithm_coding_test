@@ -27,9 +27,9 @@ public:
 
     vector<string> summaryRanges(vector<int>& nums) 
     {
-        //연속된 숫자
         if (nums.empty())
             return {};
+
         vector<string> res;
 
         //0,1,4
