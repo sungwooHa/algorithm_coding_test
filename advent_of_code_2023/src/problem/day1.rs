@@ -3,14 +3,13 @@ use std::fmt::Error;
 
 use crate::{solution::Solution, util};
 
-
 pub struct Day1 {}
 
 impl Solution for Day1 {
-    fn solve1() -> Result<String, std::io::Error>{
+    fn solve1() -> Result<String, std::io::Error> {
         let input = util::file_reader("day1.txt".to_string())?;
         let mut res = Vec::new();
-        let mut calc : usize = 0;
+        let mut calc: usize = 0;
         for str in input {
             if str == "" {
                 res.push(calc);
@@ -29,10 +28,10 @@ impl Solution for Day1 {
         Ok("ok".to_string())
     }
 
-    fn solve2() ->  Result<String, std::io::Error>{
+    fn solve2() -> Result<String, std::io::Error> {
         let input = util::file_reader("day1.txt".to_string())?;
         let mut res = Vec::new();
-        let mut calc : usize = 0;
+        let mut calc: usize = 0;
         for str in input {
             if str == "" {
                 res.push(calc);
@@ -46,7 +45,7 @@ impl Solution for Day1 {
 
         res.push(calc);
 
-        res.sort_by(|a,b| b.partial_cmp(a).unwrap());
+        res.sort_by(|a, b| b.partial_cmp(a).unwrap());
         println!("{:?}", res.iter().max().unwrap());
 
         let result = res[0] + res[1] + res[2];
