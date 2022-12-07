@@ -2,7 +2,7 @@
 
 #reference
   - LeetCode : https://leetcode.com/
-  - https://programmers.co.kr/learn/challenges
+  - Programmers : https://programmers.co.kr/learn/challenges
   - codlity : https://www.codility.com/
   - advent of code : https://adventofcode.com/
 
