@@ -1,16 +1,16 @@
 ## 코딩 테스트 공부 저장용입니다
 
+<details>
+  <summary>reference </summary>
 # 공부 할 수 있는 사이트
 
 ### LeetCode : https://leetcode.com/
-
 ### programmers : https://programmers.co.kr/learn/challenges
-
 ### codlity : https://www.codility.com/
-
+</details>
 
 <details>
-  <summary>leetcode progress</summary>
+  <summary> #leetcode progress</summary>
 
 ---
 
