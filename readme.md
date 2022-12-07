@@ -8,6 +8,10 @@
 
 ### codlity : https://www.codility.com/
 
+
+<details>
+  <summary>leetcode progress</summary>
+
 ---
 
 | #    | Title                                                                                                                                                                                     | Difficulty | code                                                     | Blog                                                                                       |
@@ -92,3 +96,4 @@
 
 
 
+</details>
