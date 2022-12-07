@@ -1,6 +1,6 @@
 use core::panic;
 use std::{fmt::Error, vec};
-use strum::{IntoEnumIterator, EnumIter};
+use strum::{EnumIter, IntoEnumIterator};
 
 use crate::{solution::Solution, util};
 
@@ -22,11 +22,11 @@ impl GameResult {
         }
     }
 
-    fn need_game_result(str :&str) -> GameResult {
+    fn need_game_result(str: &str) -> GameResult {
         match str {
             "X" => GameResult::lose, //lose
             "Y" => GameResult::draw, //draw
-            "Z" => GameResult::win, //win
+            "Z" => GameResult::win,  //win
             _ => GameResult::invalid,
         }
     }
@@ -40,24 +40,24 @@ enum GameType {
     invalid,
 }
 
-fn find_opponent_game_type(game_result : &GameResult, my_game_type: &GameType) -> GameType {
+#[warn(dead_code)]
+fn find_opponent_game_type(game_result: &GameResult, my_game_type: &GameType) -> GameType {
     for game_type in GameType::iter().collect::<Vec<_>>() {
-        if my_game_type.fight(&game_type).eq(game_result){
+        if my_game_type.fight(&game_type).eq(game_result) {
             return game_type;
         }
     }
     GameType::invalid
 }
 
-fn find_my_game_type(game_result : &GameResult, opponent_game_type: &GameType) -> GameType {
+fn find_my_game_type(game_result: &GameResult, opponent_game_type: &GameType) -> GameType {
     for game_type in GameType::iter().collect::<Vec<_>>() {
-        if game_type.fight(&opponent_game_type).eq(game_result){
+        if game_type.fight(opponent_game_type).eq(game_result) {
             return game_type;
         }
     }
     GameType::invalid
 }
-
 
 impl GameType {
     fn fight(&self, opponent_game_type: &GameType) -> GameResult {
@@ -86,8 +86,8 @@ impl GameType {
 
     pub fn my_str_to_game_type(str: &str) -> GameType {
         match str {
-            "X" => GameType::Rock, //lose
-            "Y" => GameType::Paper, //draw
+            "X" => GameType::Rock,     //lose
+            "Y" => GameType::Paper,    //draw
             "Z" => GameType::Scissors, //win
             _ => GameType::invalid,
         }
@@ -115,7 +115,8 @@ impl GameType {
 fn calc_my_score(opponent_game_type: &GameType, my_game_type: &GameType) -> usize {
     my_game_type
         .fight(opponent_game_type)
-        .game_result_to_score() + my_game_type.game_type_to_score()
+        .game_result_to_score()
+        + my_game_type.game_type_to_score()
 }
 
 pub struct Day2 {}
@@ -126,10 +127,13 @@ impl Solution for Day2 {
 
         let mut total_score = 0;
         for line in input {
-            let opponent_game_type = GameType::opponent_str_to_game_type(line.chars().nth(0).unwrap().to_string().as_str());
-            let my_game_type = GameType::my_str_to_game_type(line.chars().nth(2).unwrap().to_string().as_str());
+            let opponent_game_type = GameType::opponent_str_to_game_type(
+                line.chars().nth(0).unwrap().to_string().as_str(),
+            );
+            let my_game_type =
+                GameType::my_str_to_game_type(line.chars().nth(2).unwrap().to_string().as_str());
 
-            if opponent_game_type == GameType::invalid || my_game_type==GameType::invalid {
+            if opponent_game_type == GameType::invalid || my_game_type == GameType::invalid {
                 assert!(false);
             }
 
@@ -145,14 +149,18 @@ impl Solution for Day2 {
 
         let mut total_score = 0;
         for line in input {
-            let opponent_game_type = GameType::opponent_str_to_game_type(line.chars().nth(0).unwrap().to_string().as_str());
-            let need_game_result = GameResult::need_game_result(line.chars().nth(2).unwrap().to_string().as_str());
+            let opponent_game_type = GameType::opponent_str_to_game_type(
+                line.chars().nth(0).unwrap().to_string().as_str(),
+            );
+            let need_game_result =
+                GameResult::need_game_result(line.chars().nth(2).unwrap().to_string().as_str());
 
             if opponent_game_type == GameType::invalid || need_game_result == GameResult::invalid {
-                assert!(false);
+                panic!("not expected");
             }
 
-            total_score += &need_game_result.game_result_to_score() + find_my_game_type(&need_game_result, &opponent_game_type).game_type_to_score();
+            total_score += need_game_result.game_result_to_score()
+                + find_my_game_type(&need_game_result, &opponent_game_type).game_type_to_score();
         }
 
         println!("{}", total_score);

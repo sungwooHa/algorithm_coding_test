@@ -11,7 +11,7 @@ impl Solution for Day1 {
         let mut res = Vec::new();
         let mut calc: usize = 0;
         for str in input {
-            if str == "" {
+            if str.is_empty() {
                 res.push(calc);
                 calc = 0;
 
@@ -33,7 +33,7 @@ impl Solution for Day1 {
         let mut res = Vec::new();
         let mut calc: usize = 0;
         for str in input {
-            if str == "" {
+            if str.is_empty() {
                 res.push(calc);
                 calc = 0;
 
