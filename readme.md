@@ -1,12 +1,14 @@
 ## 코딩 테스트 공부 저장용입니다
 
-# 공부 할 수 있는 사이트
+#reference
+  - LeetCode : https://leetcode.com/
+  - Programmers : https://programmers.co.kr/learn/challenges
+  - codlity : https://www.codility.com/
+  - advent of code : https://adventofcode.com/
 
-### LeetCode : https://leetcode.com/
 
-### programmers : https://programmers.co.kr/learn/challenges
-
-### codlity : https://www.codility.com/
+<details>
+  <summary>leetcode progress</summary>
 
 ---
 
@@ -92,3 +94,4 @@
 
 
 
+</details>
